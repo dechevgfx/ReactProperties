@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
+import OAuth from "./components/OAuth";
 
 function App() {
     return (

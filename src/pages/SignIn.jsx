@@ -1,4 +1,4 @@
-import "../styles/sign.css"
+import "../styles/sign.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -19,71 +19,63 @@ export default function SignIn() {
   }
   return (
     <section>
-    <h1 className="heading">Sign In</h1>
-    <div className="div-container">
-      <div className="form-div">
-        <form>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={onChange}
-            placeholder="Email address"
-            className="input"
-          />
-          <div className="pass">
+      <h1 className="heading">Sign In</h1>
+      <div className="div-container">
+        <div className="form-div">
+          <form>
             <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              value={password}
+              type="email"
+              id="email"
+              value={email}
               onChange={onChange}
-              placeholder="Password"
+              placeholder="Email address"
               className="input"
             />
-            {showPassword ? (
-              <AiFillEyeInvisible
-                className="icon"
-                onClick={() => setShowPassword((prevState) => !prevState)}
+            <div className="pass">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                onChange={onChange}
+                placeholder="Password"
+                className="input"
               />
-            ) : (
-              <AiFillEye
-                className="icon"
-                onClick={() => setShowPassword((prevState) => !prevState)}
-              />
-            )}
-          </div>
-          <div className="div-btn">
-            <p className="p-link">
-              Don't have a account?
-              <Link
-                to="/signup"
-                className="txt-red"
-              >
-                Register
-              </Link>
-            </p>
-            <p>
-              <Link
-                to="/forgot-password"
-                className="txt-blue"
-              >
-                Forgot password?
-              </Link>
-            </p>
-          </div>
-          <button
-            className="submit"
-            type="submit"
-          >
-            Sign in
-          </button>
-          <div className="signup">
-            <p className="p-sign">OR</p>
-          </div>
-          <OAuth />
-        </form>
+              {showPassword ? (
+                <AiFillEyeInvisible
+                  className="icon"
+                  onClick={() => setShowPassword((prevState) => !prevState)}
+                />
+              ) : (
+                <AiFillEye
+                  className="icon"
+                  onClick={() => setShowPassword((prevState) => !prevState)}
+                />
+              )}
+            </div>
+            <div className="div-btn">
+              <p className="p-link">
+                Don't have a account?
+                <Link to="/signup" className="txt-red">
+                  Register
+                </Link>
+              </p>
+
+              <p>
+                <Link to="/forgot-password" className="txt-blue">
+                  Forgot password?
+                </Link>
+              </p>
+            </div>
+            <button className="submit" type="submit">
+              Sign in
+            </button>
+            <div className="signup">
+              <p className="p-sign">OR</p>
+            </div>
+            <OAuth />
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
-};
+}
