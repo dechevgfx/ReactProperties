@@ -1,4 +1,4 @@
-import "../styles/sign.css"
+import "../styles/Sign.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";

@@ -1,4 +1,4 @@
-import "../styles/sign.css";
+import "../styles/Sign.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
