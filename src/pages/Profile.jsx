@@ -1,7 +1,10 @@
-import { getAuth } from "firebase/auth";
+import "../styles/Profile.css";
+import { getAuth, updateProfile } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Profile.css"
+import { toast } from "react-toastify";
+import { db } from "../firebase";
 
 export default function Profile() {
   const auth = getAuth();
@@ -10,11 +13,35 @@ export default function Profile() {
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
   });
+  const [changeDetails, setChangeDetails] = useState(false);
   const { name, email } = formData;
   function onLogout() {
     auth.signOut();
     navigate("/");
   }
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const onSubmit = async (e) => {
+    try {
+      if (auth.currentUser.displayName !== name) {
+        await updateProfile(auth.currentUser, { displayName: name });
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(docRef, {
+          name,
+        });
+      }
+      toast.success("Profile details updated");
+    } catch (error) {
+      toast.error("Could not update the profile details");
+    }
+  };
+
   return (
     <>
       <section className="container-profile-edit">
@@ -27,7 +54,8 @@ export default function Profile() {
               type="text"
               id="name"
               value={name}
-              disabled
+              disabled={!changeDetails}
+              onChange={onChange}
               className="input"
             />
 
@@ -44,14 +72,17 @@ export default function Profile() {
             <div className="options-div">
               <p className="p-question">
                 Do you want to change your name?
-                <span className="txt-red">
-                  Edit
+                <span
+                  onClick={() => {
+                    changeDetails && onSubmit();
+                    setChangeDetails((prevState) => !prevState);
+                  }}
+                  className="txt-red"
+                >
+                  {changeDetails ? "Apply changes" : "Edit"}
                 </span>
               </p>
-              <p
-                onClick={onLogout}
-                className="blue"
-              >
+              <p onClick={onLogout} className="blue">
                 Sign out
               </p>
             </div>
