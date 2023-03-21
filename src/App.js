@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./components/Private";
 import CreateOffer from "./pages/CreateOffer";
 import EditOffer from "./pages/EditOffer";
+import Listing from "./pages/Listing";
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
           </Route>
+          <Route path="/category/:categoryName/:listingId" element={<Listing />} />
+
           <Route path="/offers" element={<Offers />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signin" element={<SignIn />} />

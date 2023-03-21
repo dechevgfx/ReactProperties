@@ -30,9 +30,9 @@ export default function Header() {
         <div className="nav container">
           <div>
             <img
-              src={process.env.PUBLIC_URL + "/logo-no-background.png"}
-              className="logo"
-              alt="logo"
+              src={process.env.PUBLIC_URL + "/sign.css-no-background.png"}
+              className="sign.css"
+              alt="sign.css"
               onClick={() => navigate("/")}
             />
           </div>

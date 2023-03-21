@@ -9,7 +9,7 @@ export default function Offer({ listing, id, onEdit, onDelete }) {
   return (
     <li className="li-item">
       <Link className="contents" to={`/category/${listing.type}/${id}`}>
-        <img className="img" loading="lazy" src={listing.imgUrls[0]} />
+        <img className="img" loading="lazy" src={listing.imgUrls[0]} alt="Listing"/>
         <Moment className="moment-item" fromNow>
           {listing.timestamp?.toDate()}
         </Moment>
