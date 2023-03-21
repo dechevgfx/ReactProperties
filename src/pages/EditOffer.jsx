@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/CreateOffer.css";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import {
@@ -10,23 +9,30 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-export default function CreateOffer() {
+export default function EditListing() {
   const navigate = useNavigate();
   const auth = getAuth();
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [listing, setListing] = useState(null);
   const [formData, setFormData] = useState({
     type: "rent",
     name: "",
-    address: "",
     bedrooms: 1,
     bathrooms: 1,
     parking: false,
     furnished: false,
+    address: "",
     description: "",
     offer: false,
     regularPrice: 0,
@@ -38,10 +44,10 @@ export default function CreateOffer() {
   const {
     type,
     name,
-    address,
     bedrooms,
     bathrooms,
     parking,
+    address,
     furnished,
     description,
     offer,
@@ -51,6 +57,33 @@ export default function CreateOffer() {
     longitude,
     images,
   } = formData;
+
+  const params = useParams();
+
+  useEffect(() => {
+    if (listing && listing.userRef !== auth.currentUser.uid) {
+      toast.error("You can't edit this listing");
+      navigate("/");
+    }
+  }, [auth.currentUser.uid, listing, navigate]);
+
+  useEffect(() => {
+    setLoading(true);
+    async function fetchListing() {
+      const docRef = doc(db, "listings", params.listingId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setListing(docSnap.data());
+        setFormData({ ...docSnap.data() });
+        setLoading(false);
+      } else {
+        navigate("/");
+        toast.error("Listing does not exist");
+      }
+    }
+    fetchListing();
+  }, [navigate, params.listingId]);
+
   function onChange(e) {
     let boolean = null;
     if (e.target.value === "true") {
@@ -167,9 +200,11 @@ export default function CreateOffer() {
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
     delete formDataCopy.latitude;
     delete formDataCopy.longitude;
-    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+    const docRef = doc(db, "listings", params.listingId);
+
+    await updateDoc(docRef, formDataCopy);
     setLoading(false);
-    toast.success("Listing created");
+    toast.success("Listing Edited");
     navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   }
 
@@ -178,7 +213,7 @@ export default function CreateOffer() {
   }
   return (
     <main className="main">
-      <h1 className="heading">Create a Offer</h1>
+      <h1 className="heading">Edit Listing</h1>
       <form onSubmit={onSubmit}>
         <p className="p-type">Sell / Rent</p>
         <div className="flex-div">
@@ -213,6 +248,7 @@ export default function CreateOffer() {
           required
           className="text-inputs"
         />
+
         <p className="semibold-p">Address</p>
         <textarea
           type="text"
@@ -223,7 +259,6 @@ export default function CreateOffer() {
           required
           className="text-inputs"
         />
-
         {!geolocationEnabled && (
           <div className="flex-start">
             <div className="">
@@ -414,7 +449,7 @@ export default function CreateOffer() {
           />
         </div>
         <button type="submit" className="submit">
-          Create Offer
+          Edit Listing
         </button>
       </form>
     </main>
