@@ -2,9 +2,10 @@ import "../styles/Profile.css";
 import { getAuth, updateProfile } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
+import { TbHomeDollar } from "react-icons/tb";
 
 export default function Profile() {
   const auth = getAuth();
@@ -87,6 +88,16 @@ export default function Profile() {
               </p>
             </div>
           </form>
+
+          <button type="submit" className="sell-button">
+          <Link
+              to="/create"
+              className="create-link"
+            >
+            <TbHomeDollar className="home-icon" />
+            ADD PROPERTY TO YOUR LISTINGS
+            </Link>
+          </button>
         </div>
       </section>
     </>
