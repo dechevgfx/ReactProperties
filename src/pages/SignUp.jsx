@@ -1,4 +1,4 @@
-import "../styles/Sign.css"
+import "../styles/Sign.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -30,7 +30,6 @@ export default function SignUp() {
   }
   async function onSubmit(e) {
     e.preventDefault();
-
     try {
       const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
@@ -77,7 +76,7 @@ export default function SignUp() {
               className="input"
             />
             <div className="pass">
-            <input
+              <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
@@ -100,26 +99,17 @@ export default function SignUp() {
             <div className="div-btn">
               <p className="p-link">
                 Have a account?
-                <Link
-                  to="/signin"
-                  className="txt-red"
-                >
+                <Link to="/signin" className="txt-red">
                   Sign in
                 </Link>
               </p>
               <p>
-                <Link
-                  to="/forgot-password"
-                  className="txt-blue"
-                >
+                <Link to="/forgot-password" className="txt-blue">
                   Forgot password?
                 </Link>
               </p>
             </div>
-            <button
-              className="submit"
-              type="submit"
-            >
+            <button className="submit" type="submit">
               Sign up
             </button>
             <div className="signup">

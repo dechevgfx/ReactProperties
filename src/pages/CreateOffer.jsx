@@ -91,7 +91,7 @@ export default function CreateOffer() {
     let location;
     if (geolocationEnabled) {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_MAPS_API}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBow-uELhK9xuCURsIvNSJUdp67slfCVl8`
       );
       const data = await response.json();
       console.log(data);
