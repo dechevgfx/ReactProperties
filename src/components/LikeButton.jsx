@@ -22,39 +22,35 @@ export default function LikeButton() {
       if (docSnap.exists()) {
         setLikes(docSnap.data().likes);
         const likedBy = docSnap.data().likedBy;
-        if (likedBy && likedBy[auth.currentUser.uid]) {
+        if (likedBy && auth.currentUser && likedBy[auth.currentUser.uid]) {
           setLiked(true);
         }
       }
     }
 
     fetchListing();
-  }, [params.listingId, auth.currentUser.uid]);
+  }, [params.listingId, auth.currentUser]);
 
   const handleLike = async () => {
-    if (liked) {
-      await updateDoc(listingRef, {
-        likes: likes - 1,
-        [`likedBy.${auth.currentUser.uid}`]: false,
-      });
-      setLiked(false);
-      setLikes((prev) => prev - 1);
-    } else {
+    if (auth.currentUser && !liked) {
       await updateDoc(listingRef, {
         likes: likes + 1,
         [`likedBy.${auth.currentUser.uid}`]: true,
       });
       setLiked(true);
       setLikes((prev) => prev + 1);
+    } else if (auth.currentUser && liked) {
+      await updateDoc(listingRef, {
+        likes: likes - 1,
+        [`likedBy.${auth.currentUser.uid}`]: false,
+      });
+      setLiked(false);
+      setLikes((prev) => prev - 1);
     }
   };
 
-  return liked ? (
-    <div className={"liked like-btn"} onClick={handleLike}>
-      <AiOutlineHeart className="icon" />
-    </div>
-  ) : (
-    <div className={"like-btn"} onClick={handleLike}>
+  return (
+    <div className={`like-btn ${liked ? "liked" : ""}`} onClick={handleLike}>
       <AiOutlineHeart className="icon" />
     </div>
   );
