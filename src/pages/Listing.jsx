@@ -24,6 +24,7 @@ import {
 import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import LikeButton from "../components/LikeButton";
 
 export default function Listing() {
   const params = useParams();
@@ -77,6 +78,7 @@ export default function Listing() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <LikeButton/>
       <div className="share-btn" onClick={onCopyLink}>
         <FiCopy className="icon" />
       </div>

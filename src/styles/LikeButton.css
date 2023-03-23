@@ -1,0 +1,19 @@
+.like-btn {
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-color: #9ca3af;
+  cursor: pointer;
+  top: 12%;
+  right: 13%;
+}
+.liked{
+  background-color: #fa5c5c;
+}

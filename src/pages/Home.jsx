@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import Offer from "../components/Offer";
 import Slider from "../components/Slider";
 import { db } from "../firebase";
-import "../styles/Home.css"
+import "../styles/Home.css";
 
 export default function Home() {
   // Offers
@@ -27,7 +27,7 @@ export default function Home() {
           listingsRef,
           where("offer", "==", true),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -57,7 +57,7 @@ export default function Home() {
           listingsRef,
           where("type", "==", "rent"),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -87,7 +87,7 @@ export default function Home() {
           listingsRef,
           where("type", "==", "sale"),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
