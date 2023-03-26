@@ -1,8 +1,8 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import { getAuth } from "firebase/auth";
 import "../styles/LikeButton.css";
 
@@ -20,9 +20,9 @@ export default function LikeButton() {
       setListingRef(docRef);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        setLikes(docSnap.data().likes);
-        const likedBy = docSnap.data().likedBy;
-        if (likedBy && auth.currentUser && likedBy[auth.currentUser.uid]) {
+        setLikes(docSnap.data().likes || 0);
+        const likedBy = docSnap.data().likedBy || {};
+        if (auth.currentUser && likedBy[auth.currentUser.uid]) {
           setLiked(true);
         }
       }
@@ -33,25 +33,39 @@ export default function LikeButton() {
 
   const handleLike = async () => {
     if (auth.currentUser && !liked) {
+      const userId = auth.currentUser.uid;
       await updateDoc(listingRef, {
         likes: likes + 1,
-        [`likedBy.${auth.currentUser.uid}`]: true,
+        [`likedBy.${userId}`]: true,
       });
       setLiked(true);
       setLikes((prev) => prev + 1);
+
+      const likeRef = doc(listingRef, "likes", userId);
+      await updateDoc(likeRef, {
+        userId,
+        createdAt: new Date(),
+      });
     } else if (auth.currentUser && liked) {
+      const userId = auth.currentUser.uid;
       await updateDoc(listingRef, {
         likes: likes - 1,
-        [`likedBy.${auth.currentUser.uid}`]: false,
+        [`likedBy.${userId}`]: false,
       });
       setLiked(false);
       setLikes((prev) => prev - 1);
+
+      const likeRef = doc(listingRef, "likes", userId);
+      await deleteDoc(likeRef);
     }
   };
 
   return (
-    <div className={`like-btn ${liked ? "liked" : ""}`} onClick={handleLike}>
-      <AiOutlineHeart className="icon" />
-    </div>
+    <>
+      {" "}
+      <div className={`like-btn ${liked ? "liked" : ""}`} onClick={handleLike}>
+        <AiOutlineLike className="icon" />
+      </div>
+    </>
   );
 }

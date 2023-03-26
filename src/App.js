@@ -35,7 +35,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="create" element={<PrivateRoute />}>
+          <Route path="/create" element={<PrivateRoute />}>
             <Route path="/create" element={<CreateOffer />} />
           </Route>
           <Route path="edit" element={<PrivateRoute />}>
