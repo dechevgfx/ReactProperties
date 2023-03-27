@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
-  EffectFade,
+  EffectCube,
   Autoplay,
   Navigation,
   Pagination,
@@ -26,7 +26,7 @@ import Contact from "../components/Contact";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import LikeButton from "../components/LikeButton";
 
-export default function Listing() {
+const Listing = () => {
   const params = useParams();
   const auth = getAuth();
   const [listing, setListing] = useState(null);
@@ -62,8 +62,8 @@ export default function Listing() {
         slidesPerView={1}
         navigation
         pagination={{ type: "progressbar" }}
-        effect="fade"
-        modules={[EffectFade]}
+        effect="cube"
+        modules={[EffectCube]}
         autoplay={{ delay: 3000 }}
       >
         {listing.imgUrls.map((url, index) => (
@@ -78,7 +78,7 @@ export default function Listing() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <LikeButton/>
+      <LikeButton />
       <div className="share-btn" onClick={onCopyLink}>
         <FiCopy className="icon" />
       </div>
@@ -160,13 +160,12 @@ export default function Listing() {
             <Marker
               position={[listing.geolocation.lat, listing.geolocation.lng]}
             >
-              <Popup>
-              {listing.address}
-              </Popup>
+              <Popup>{listing.address}</Popup>
             </Marker>
           </MapContainer>
         </div>
       </div>
     </main>
   );
-}
+};
+export default Listing;

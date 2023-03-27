@@ -1,2 +1,7 @@
-
-
+a {
+  all: unset;
+  cursor: pointer;
+}
+body {
+  background-color: rgb(214, 233, 220);
+}

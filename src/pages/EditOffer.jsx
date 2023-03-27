@@ -14,7 +14,7 @@ import { db } from "../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function EditListing() {
+const EditListing = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
@@ -64,7 +64,7 @@ export default function EditListing() {
 
   useEffect(() => {
     setLoading(true);
-    async function fetchListing() {
+    const fetchListing = async () => {
       const docRef = doc(db, "listings", params.listingId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
@@ -75,11 +75,11 @@ export default function EditListing() {
         navigate("/");
         toast.error("Listing does not exist");
       }
-    }
+    };
     fetchListing();
   }, [navigate, params.listingId]);
 
-  function onChange(e) {
+  const onChange = (e) => {
     let boolean = null;
     if (e.target.value === "true") {
       boolean = true;
@@ -101,8 +101,8 @@ export default function EditListing() {
         [e.target.id]: boolean ?? e.target.value,
       }));
     }
-  }
-  async function onSubmit(e) {
+  };
+  const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (+discountedPrice >= +regularPrice) {
@@ -110,9 +110,9 @@ export default function EditListing() {
       toast.error("Discounted price needs to be less than regular price");
       return;
     }
-    if (images.length > 6) {
+    if (images.length > 10) {
       setLoading(false);
-      toast.error("maximum 6 images are allowed");
+      toast.error("Upload maximum 10 images!");
       return;
     }
     let geolocation = {};
@@ -130,7 +130,7 @@ export default function EditListing() {
 
       if (location === undefined) {
         setLoading(false);
-        toast.error("please enter a correct address");
+        toast.error("Address not found, please try again!");
         return;
       }
     } else {
@@ -138,7 +138,7 @@ export default function EditListing() {
       geolocation.lng = longitude;
     }
 
-    async function storeImage(image) {
+    const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage();
         const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
@@ -174,7 +174,7 @@ export default function EditListing() {
           }
         );
       });
-    }
+    };
 
     const imgUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
@@ -201,7 +201,7 @@ export default function EditListing() {
     setLoading(false);
     toast.success("Listing Edited");
     navigate(`/category/${formDataCopy.type}/${docRef.id}`);
-  }
+  };
 
   if (loading) {
     return <Spinner />;
@@ -449,4 +449,5 @@ export default function EditListing() {
       </form>
     </main>
   );
-}
+};
+export default EditListing;

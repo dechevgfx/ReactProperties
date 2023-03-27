@@ -14,7 +14,7 @@ import Slider from "../components/Slider";
 import { db } from "../firebase";
 import "../styles/Home.css";
 
-export default function Home() {
+const Home = () => {
   // Offers
   const [offerListings, setOfferListings] = useState(null);
   useEffect(() => {
@@ -25,9 +25,9 @@ export default function Home() {
         // create the query
         const q = query(
           listingsRef,
-          where("offer", "==", true),
+          // where("offer", "==", true),
           orderBy("timestamp", "desc"),
-          limit(3)
+          limit(4)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -48,7 +48,7 @@ export default function Home() {
   // Places for rent
   const [rentListings, setRentListings] = useState(null);
   useEffect(() => {
-    async function fetchListings() {
+    const fetchListings = async () => {
       try {
         // get reference
         const listingsRef = collection(db, "listings");
@@ -57,7 +57,7 @@ export default function Home() {
           listingsRef,
           where("type", "==", "rent"),
           orderBy("timestamp", "desc"),
-          limit(3)
+          limit(4)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -78,7 +78,7 @@ export default function Home() {
   // Places for rent
   const [saleListings, setSaleListings] = useState(null);
   useEffect(() => {
-    async function fetchListings() {
+    const fetchListings = async () => {
       try {
         // get reference
         const listingsRef = collection(db, "listings");
@@ -87,7 +87,7 @@ export default function Home() {
           listingsRef,
           where("type", "==", "sale"),
           orderBy("timestamp", "desc"),
-          limit(3)
+          limit(4)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -111,9 +111,9 @@ export default function Home() {
       <div className="recent-container">
         {offerListings && offerListings.length > 0 && (
           <div className="listings">
-            <h2 className="heading">Recent offers</h2>
+            <h2 className="heading">RECENT LISTINGS</h2>
             <Link to="/offers">
-              <p className="show-more">Show more offers</p>
+              <p className="show-more">Show all listings</p>
             </Link>
             <ul className="list">
               {offerListings.map((listing) => (
@@ -128,7 +128,7 @@ export default function Home() {
         )}
         {rentListings && rentListings.length > 0 && (
           <div className="listings">
-            <h2 className="heading">Places for rent</h2>
+            <h2 className="heading">FOR RENT</h2>
             <Link to="/category/rent">
               <p className="show-more">Show more places for rent</p>
             </Link>
@@ -145,7 +145,7 @@ export default function Home() {
         )}
         {saleListings && saleListings.length > 0 && (
           <div className="listings">
-            <h2 className="heading">Places for sale</h2>
+            <h2 className="heading">FOR SALE</h2>
             <Link to="/category/sale">
               <p className="show-more">Show more places for sale</p>
             </Link>
@@ -164,3 +164,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;

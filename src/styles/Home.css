@@ -20,16 +20,14 @@
 .show-more {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  color: #2563eb;
+  color: rgb(0, 43, 91);
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 .show-more:hover {
-  color: #1e40af;
+  color: rgb(87, 197, 182);
 }
 
 @media (min-width: 640px) {

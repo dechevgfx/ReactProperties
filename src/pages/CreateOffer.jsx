@@ -14,7 +14,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateOffer() {
+const CreateOffer = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
@@ -51,7 +51,7 @@ export default function CreateOffer() {
     longitude,
     images,
   } = formData;
-  function onChange(e) {
+const onChange = (e) => {
     let boolean = null;
     if (e.target.value === "true") {
       boolean = true;
@@ -74,7 +74,7 @@ export default function CreateOffer() {
       }));
     }
   }
-  async function onSubmit(e) {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (+discountedPrice >= +regularPrice) {
@@ -109,7 +109,7 @@ export default function CreateOffer() {
       geolocation.lng = longitude;
     }
 
-    async function storeImage(image) {
+    const storeImage = async (image) => {
       return new Promise((resolve, reject) => {
         const storage = getStorage();
         const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
@@ -419,3 +419,4 @@ export default function CreateOffer() {
     </main>
   );
 }
+export default CreateOffer;

@@ -5,9 +5,9 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-export default function OAuth() {
+const OAuth = () => {
   const navigate = useNavigate();
-  async function onGoogleClick() {
+  const onGoogleClick = async () => {
     try {
       const auth = getAuth();
       const provider = new GoogleAuthProvider();
@@ -30,7 +30,7 @@ export default function OAuth() {
     } catch (error) {
       toast.error("Could not authorize with Google");
     }
-  }
+  };
 
   return (
     <button className="oauth-button" onClick={onGoogleClick} type="button">
@@ -38,4 +38,5 @@ export default function OAuth() {
       Continue with Google
     </button>
   );
-}
+};
+export default OAuth;

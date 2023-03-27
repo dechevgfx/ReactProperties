@@ -14,13 +14,13 @@ import Spinner from "../components/Spinner";
 import Offer from "../components/Offer";
 import { useParams } from "react-router-dom";
 
-export default function Category() {
+const Category = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [lastFetchedListing, setLastFetchListing] = useState(null);
   const params = useParams();
   useEffect(() => {
-    async function fetchListings() {
+    const fetchListings = async () => {
       try {
         const listingRef = collection(db, "listings");
         const q = query(
@@ -49,7 +49,7 @@ export default function Category() {
     fetchListings();
   }, [params.categoryName]);
 
-  async function onFetchMoreListings() {
+  const onFetchMoreListings = async () => {
     try {
       const listingRef = collection(db, "listings");
       const q = query(
@@ -118,3 +118,5 @@ export default function Category() {
     </div>
   );
 }
+
+export default Category;

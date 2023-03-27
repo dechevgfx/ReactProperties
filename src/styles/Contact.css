@@ -32,8 +32,6 @@
   padding-right: 1.75rem;
   margin-bottom: 1.5rem;
   background-color: #2563eb;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #ffffff;

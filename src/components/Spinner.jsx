@@ -1,6 +1,6 @@
 import spinner from "../assets/svg/Spin-1s-200px.svg";
-import "../styles/Spinner.css"
-export default function Spinner() {
+import "../styles/Spinner.css";
+const Spinner = () => {
   return (
     <div className="spinner-div">
       <div>
@@ -8,4 +8,5 @@ export default function Spinner() {
       </div>
     </div>
   );
-}
+};
+export default Spinner;

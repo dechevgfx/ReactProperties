@@ -5,11 +5,11 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
 
-export default function Contact({ userRef, listing }) {
+const Contact = ({ userRef, listing }) => {
   const [landlord, setLandlord] = useState(null);
   const [message, setMessage] = useState("");
   useEffect(() => {
-    async function getLandlord() {
+    const getLandlord = async () => {
       const docRef = doc(db, "users", userRef);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
@@ -17,18 +17,18 @@ export default function Contact({ userRef, listing }) {
       } else {
         toast.error("Could not get landlord data");
       }
-    }
+    };
     getLandlord();
   }, [userRef]);
-  function onChange(e) {
+  const onChange = (e) => {
     setMessage(e.target.value);
-  }
+  };
   return (
     <>
       {landlord !== null && (
         <div className="container">
           <p>
-            Contact {landlord.name} for the {listing.name.toLowerCase()}
+            Contact {landlord.name} for the {listing.name}
           </p>
           <div className="contact-div">
             <textarea
@@ -43,10 +43,7 @@ export default function Contact({ userRef, listing }) {
           <a
             href={`mailto:${landlord.email}?Subject=${listing.name}&body=${message}`}
           >
-            <button
-              className="contact-btn"
-              type="button"
-            >
+            <button className="contact-btn" type="button">
               Send Message
             </button>
           </a>
@@ -54,4 +51,5 @@ export default function Contact({ userRef, listing }) {
       )}
     </>
   );
-}
+};
+export default Contact;

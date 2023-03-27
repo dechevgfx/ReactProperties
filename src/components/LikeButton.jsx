@@ -6,7 +6,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { getAuth } from "firebase/auth";
 import "../styles/LikeButton.css";
 
-export default function LikeButton() {
+const LikeButton = () => {
   const params = useParams();
   const auth = getAuth();
 
@@ -15,7 +15,7 @@ export default function LikeButton() {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    async function fetchListing() {
+    const fetchListing = async () => {
       const docRef = doc(db, "listings", params.listingId);
       setListingRef(docRef);
       const docSnap = await getDoc(docRef);
@@ -26,7 +26,7 @@ export default function LikeButton() {
           setLiked(true);
         }
       }
-    }
+    };
 
     fetchListing();
   }, [params.listingId, auth.currentUser]);
@@ -68,4 +68,5 @@ export default function LikeButton() {
       </div>
     </>
   );
-}
+};
+export default LikeButton;

@@ -11,9 +11,9 @@ import {
 import { db } from "../firebase";
 import Spinner from "../components/Spinner";
 import Offer from "../components/Offer";
-import "../styles/Offers.css"
+import "../styles/Offers.css";
 
-export default function Offers() {
+const Offers = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [lastFetchedListing, setLastFetchListing] = useState(null);
@@ -21,11 +21,7 @@ export default function Offers() {
     async function fetchListings() {
       try {
         const listingRef = collection(db, "listings");
-        const q = query(
-          listingRef,
-          orderBy("timestamp", "desc"),
-          limit(6)
-        );
+        const q = query(listingRef, orderBy("timestamp", "desc"), limit(6));
         const querySnap = await getDocs(q);
         const lastVisible = querySnap.docs[querySnap.docs.length - 1];
         setLastFetchListing(lastVisible);
@@ -46,7 +42,7 @@ export default function Offers() {
     fetchListings();
   }, []);
 
-  async function onFetchMoreListings() {
+  const onFetchMoreListings = async () => {
     try {
       const listingRef = collection(db, "listings");
       const q = query(
@@ -66,12 +62,12 @@ export default function Offers() {
           data: doc.data(),
         });
       });
-      setListings((prevState)=>[...prevState, ...listings]);
+      setListings((prevState) => [...prevState, ...listings]);
       setLoading(false);
     } catch (error) {
       toast.error("Could not fetch listing");
     }
-  }
+  };
 
   return (
     <div className="container">
@@ -93,10 +89,7 @@ export default function Offers() {
           </main>
           {lastFetchedListing && (
             <div className="more">
-              <button
-                onClick={onFetchMoreListings}
-                className="btn"
-              >
+              <button onClick={onFetchMoreListings} className="btn">
                 Load more
               </button>
             </div>
@@ -107,4 +100,5 @@ export default function Offers() {
       )}
     </div>
   );
-}
+};
+export default Offers;

@@ -5,7 +5,7 @@ import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
-  EffectFade,
+  EffectCube,
   Autoplay,
   Navigation,
   Pagination,
@@ -13,14 +13,14 @@ import SwiperCore, {
 import "swiper/css/bundle";
 import { useNavigate } from "react-router-dom";
 
-export default function Slider() {
+const Slider = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
 
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   const navigate = useNavigate();
   useEffect(() => {
-    async function fetchListings() {
+    const fetchListings=async()=> {
       const listingsRef = collection(db, "listings");
       const q = query(listingsRef, orderBy("timestamp", "desc"), limit(5));
       const querySnap = await getDocs(q);
@@ -50,8 +50,8 @@ export default function Slider() {
           slidesPerView={1}
           navigation
           pagination={{ type: "progressbar" }}
-          effect="fade"
-          modules={[EffectFade]}
+          effect="cube"
+          modules={[EffectCube]}
           autoplay={{ delay: 3000 }}
         >
           {listings.map(({ data, id }) => (
@@ -67,6 +67,7 @@ export default function Slider() {
                 className="img-div"
               ></div>
               <p className="p-name">{data.name}</p>
+              <p className="p-likes">{data.likes ? data.likes : 0} likes</p>
               <p className="p-price">
                 ${data.discountedPrice ?? data.regularPrice}
                 {data.type === "rent" && " / month"}
@@ -78,3 +79,4 @@ export default function Slider() {
     )
   );
 }
+export default Slider;

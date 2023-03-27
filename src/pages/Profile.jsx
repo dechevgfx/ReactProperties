@@ -18,7 +18,7 @@ import { TbHomeDollar } from "react-icons/tb";
 import { useEffect } from "react";
 import Offer from "../components/Offer";
 
-export default function Profile() {
+const Profile = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -56,7 +56,7 @@ export default function Profile() {
     }
   };
 
-  async function onDelete(listingID) {
+  const onDelete = async (listingID) => {
     if (window.confirm("Are you sure you want to delete?")) {
       await deleteDoc(doc(db, "listings", listingID));
       const updatedListings = listings.filter(
@@ -65,10 +65,10 @@ export default function Profile() {
       setListings(updatedListings);
       toast.success("Successfully deleted the listing");
     }
-  }
-  function onEdit(listingID) {
+  };
+  const onEdit = (listingID) => {
     navigate(`/edit/${listingID}`);
-  }
+  };
 
   useEffect(() => {
     async function fetchUserListings() {
@@ -167,4 +167,5 @@ export default function Profile() {
       </div>
     </>
   );
-}
+};
+export default Profile;

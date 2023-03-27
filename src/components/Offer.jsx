@@ -5,11 +5,16 @@ import { MdLocationOn } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-export default function Offer({ listing, id, onEdit, onDelete }) {
+const Offer = ({ listing, id, onEdit, onDelete }) => {
   return (
     <li className="li-item">
       <Link className="contents" to={`/category/${listing.type}/${id}`}>
-        <img className="img" loading="lazy" src={listing.imgUrls[0]} alt="Listing"/>
+        <img
+          className="img"
+          loading="lazy"
+          src={listing.imgUrls[0]}
+          alt="Listing"
+        />
         <Moment className="moment-item" fromNow>
           {listing.timestamp?.toDate()}
         </Moment>
@@ -47,17 +52,10 @@ export default function Offer({ listing, id, onEdit, onDelete }) {
         </div>
       </Link>
       {onDelete && (
-        <FaTrash
-          className="delete"
-          onClick={() => onDelete(listing.id)}
-        />
+        <FaTrash className="delete" onClick={() => onDelete(listing.id)} />
       )}
-      {onEdit && (
-        <MdEdit
-          className="edit"
-          onClick={() => onEdit(listing.id)}
-        />
-      )}
+      {onEdit && <MdEdit className="edit" onClick={() => onEdit(listing.id)} />}
     </li>
   );
-}
+};
+export default Offer;
