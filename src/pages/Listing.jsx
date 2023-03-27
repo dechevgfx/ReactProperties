@@ -78,7 +78,7 @@ const Listing = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <LikeButton />
+      {auth.currentUser && <LikeButton />}
       <div className="share-btn" onClick={onCopyLink}>
         <FiCopy className="icon" />
       </div>
@@ -132,16 +132,18 @@ const Listing = () => {
               {listing.furnished ? "Furnished" : "Not furnished"}
             </li>
           </ul>
-          {listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
-            <div className="contact-div">
-              <button
-                onClick={() => setContactLandlord(true)}
-                className="contact-btn"
-              >
-                Contact Landlord
-              </button>
-            </div>
-          )}
+          {listing.userRef !== auth.currentUser?.uid &&
+            !contactLandlord &&
+            auth.currentUser && (
+              <div className="contact-div">
+                <button
+                  onClick={() => setContactLandlord(true)}
+                  className="contact-btn"
+                >
+                  Contact Landlord
+                </button>
+              </div>
+            )}
           {contactLandlord && (
             <Contact userRef={listing.userRef} listing={listing} />
           )}

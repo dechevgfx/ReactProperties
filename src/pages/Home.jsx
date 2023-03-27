@@ -27,7 +27,7 @@ const Home = () => {
           listingsRef,
           // where("offer", "==", true),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -57,7 +57,7 @@ const Home = () => {
           listingsRef,
           where("type", "==", "rent"),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
@@ -87,7 +87,7 @@ const Home = () => {
           listingsRef,
           where("type", "==", "sale"),
           orderBy("timestamp", "desc"),
-          limit(4)
+          limit(3)
         );
         // execute the query
         const querySnap = await getDocs(q);
