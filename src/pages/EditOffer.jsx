@@ -152,6 +152,7 @@ const EditListing = () => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log("Upload is " + progress + "% done");
+            // eslint-disable-next-line default-case
             switch (snapshot.state) {
               case "paused":
                 console.log("Upload is paused");

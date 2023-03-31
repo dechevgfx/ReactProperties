@@ -1,46 +1,46 @@
 .img-div {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 300px;
 }
 .p-name {
-  position: absolute;
-  left: 0.25rem;
-  top: 0.75rem;
-  padding: 0.5rem;
-  font-weight: 500;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  opacity: 0.9;
-  color: #f1faee;
-  background: rgb(87, 197, 182);
+    position: absolute;
+    left: 0.25rem;
+    top: 0.75rem;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0.9;
+    color: #f1faee;
+    background: #ffae42;
 }
 .p-price {
-  position: absolute;
-  bottom: 0.25rem;
-  left: 0.25rem;
-  padding: 0.5rem;
-  font-weight: 600;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  opacity: 0.9;
-  color: #f1faee;
-  background: rgb(87, 197, 182);
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0.9;
+    color: #f1faee;
+    background: #ffae42;
 }
 
 .p-likes {
-  position: absolute;
-  right: 0.25rem;
-  top: 0.75rem;
-  padding: 0.5rem;
-  font-weight: 500;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  opacity: 0.9;
-  color: #f1faee;
-  background: #e63946;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.75rem;
+    padding: 0.5rem;
+    font-weight: 500;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0.9;
+    color: #f1faee;
+    background: #e63946;
 }

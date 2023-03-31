@@ -1,10 +1,10 @@
-import "../styles/Header.css";
+import "../styles/Navigation.css";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Navigation = () => {
   const location = useLocation();
   const [pageState, setPageState] = useState("SIGN IN");
   const navigate = useNavigate();
@@ -58,4 +58,4 @@ const Header = () => {
     </header>
   );
 };
-export default Header;
+export default Navigation;

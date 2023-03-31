@@ -8,7 +8,7 @@ import Offers from "./pages/Offers";
 import ForgotPassword from "./pages/ForgotPassword";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 import PrivateRoute from "./components/Private";
 import CreateOffer from "./pages/CreateOffer";
 import EditOffer from "./pages/EditOffer";
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
+        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<PrivateRoute />}>
