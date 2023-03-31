@@ -1,4 +1,4 @@
-import spinner from "../assets/svg/Spin-1s-200px.svg";
+import spinner from "../assets/svg/Pulse-1s-200px.svg";
 import "../styles/Spinner.css";
 const Spinner = () => {
   return (

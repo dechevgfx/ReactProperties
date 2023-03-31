@@ -56,10 +56,6 @@
   padding-left: 1.75rem;
   padding-right: 1.75rem;
   margin-right: 0.75rem;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -100,11 +96,11 @@
 }
 
 .black {
-  color: #000000;
+  color: #ffffff;
 }
 .white {
   background-color: #00fd7f;
-  color: #000000;
+  color: #ffffff;
 }
 
 .semibold-p {

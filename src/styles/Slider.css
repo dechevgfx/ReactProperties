@@ -8,39 +8,36 @@
     position: absolute;
     left: 0.25rem;
     top: 0.75rem;
-    padding: 0.5rem;
-    font-weight: 500;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    opacity: 0.9;
-    color: #f1faee;
-    background: #ffae42;
+    color: #fff;
+    padding: 10px;
+    background-color: #ffae42;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
 }
 .p-price {
-    position: absolute;
     bottom: 0.25rem;
     left: 0.25rem;
-    padding: 0.5rem;
-    font-weight: 600;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    opacity: 0.9;
-    color: #f1faee;
-    background: #ffae42;
+    position: absolute;
+    color: #fff;
+    padding: 10px;
+    background-color: #ffae42;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
 }
 
 .p-likes {
     position: absolute;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
     right: 0.25rem;
     top: 0.75rem;
-    padding: 0.5rem;
-    font-weight: 500;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    opacity: 0.9;
-    color: #f1faee;
     background: #e63946;
 }

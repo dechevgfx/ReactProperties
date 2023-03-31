@@ -132,7 +132,7 @@ const Profile = () => {
                   {changeDetails ? "Apply changes" : "Edit"}
                 </span>
               </p>
-              <p onClick={onLogout} className="blue">
+              <p onClick={onLogout} className="logout">
                 Sign out
               </p>
             </div>

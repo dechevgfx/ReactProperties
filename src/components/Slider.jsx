@@ -5,10 +5,11 @@ import Spinner from "../components/Spinner";
 import { db } from "../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
-  EffectCube,
+  // EffectCube,
   Autoplay,
   Navigation,
   Pagination,
+  EffectFade,
 } from "swiper";
 import "swiper/css/bundle";
 import { useNavigate } from "react-router-dom";
@@ -50,8 +51,8 @@ const Slider = () => {
           slidesPerView={1}
           navigation
           pagination={{ type: "progressbar" }}
-          effect="cube"
-          modules={[EffectCube]}
+          effect="fade"
+          modules={[EffectFade]}
           autoplay={{ delay: 3000 }}
         >
           {listings.map(({ data, id }) => (
