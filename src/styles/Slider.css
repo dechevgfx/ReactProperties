@@ -11,7 +11,7 @@
     color: #fff;
     padding: 10px;
     background-color: #ffae42;
-    border-radius: 5px;
+    border-radius: 0px 10px 10px 0px;
     font-size: 16px;
     font-weight: bold;
     text-shadow: 1px 1px #000;
@@ -23,7 +23,7 @@
     color: #fff;
     padding: 10px;
     background-color: #ffae42;
-    border-radius: 5px;
+    border-radius: 0px 10px 10px 0px;
     font-size: 16px;
     font-weight: bold;
     text-shadow: 1px 1px #000;
@@ -33,7 +33,7 @@
     position: absolute;
     color: #fff;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px 0px 0px 10px;
     font-size: 16px;
     font-weight: bold;
     text-shadow: 1px 1px #000;

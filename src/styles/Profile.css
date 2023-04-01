@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 72rem;
+    max-width: 82rem;
 }
 
 .heading {
@@ -23,20 +23,11 @@
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    .div-form {
-        width: 50%;
-    }
-}
-
 .input {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     margin-bottom: 1.5rem;
-    background-color: #ffffff;
-    color: #374151;
+    background-color: #99f2c8;
+    color: #222222;
     font-size: 1.25rem;
     line-height: 1.75rem;
     width: 100%;
@@ -53,12 +44,6 @@
     white-space: nowrap;
     justify-content: space-between;
 }
-@media (min-width: 640px) {
-    .options-div {
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-    }
-}
 
 .p-question {
     display: flex;
@@ -71,14 +56,14 @@
     cursor: pointer;
 }
 
-.logout{
-  color: #fff;
-  padding: 10px;
-  background-color: #2a98ff;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px #000;
+.logout {
+    color: #fff;
+    padding: 10px;
+    background-color: #2a98ff;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
 }
 
 .sell-button {
@@ -121,7 +106,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1.5rem;
-    max-width: 72rem;
+    max-width: 82rem;
 }
 
 .listings-heading {
@@ -139,6 +124,16 @@
 @media (min-width: 640px) {
     .list {
         display: grid;
+    }
+    .options-div {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .div-form {
+        width: 50%;
     }
 }
 

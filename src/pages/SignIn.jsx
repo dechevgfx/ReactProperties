@@ -39,76 +39,76 @@ const SignIn = () => {
         }
     };
     return (
-        <section>
-            <h1 className="heading">Sign In</h1>
-            <div className="div-container">
-                <div className="form-div">
-                    <form onSubmit={onSubmit}>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={onChange}
-                            placeholder="Email address"
-                            className="input"
-                        />
-                        <div className="pass">
+        <>
+            <section>
+                <h1 className="heading">Sign In</h1>
+                <div className="div-container">
+                    <div className="form-div">
+                        <form onSubmit={onSubmit}>
                             <input
-                                type={showPassword ? "text" : "password"}
-                                id="password"
-                                value={password}
+                                type="email"
+                                id="email"
+                                value={email}
                                 onChange={onChange}
-                                placeholder="Password"
+                                placeholder="Email address"
                                 className="input"
                             />
-                            {showPassword ? (
-                                <AiFillEyeInvisible
-                                    className="icon"
-                                    onClick={() =>
-                                        setShowPassword(
-                                            (prevState) => !prevState,
-                                        )
-                                    }
+                            <div className="pass">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    id="password"
+                                    value={password}
+                                    onChange={onChange}
+                                    placeholder="Password"
+                                    className="input"
                                 />
-                            ) : (
-                                <AiFillEye
-                                    className="icon"
-                                    onClick={() =>
-                                        setShowPassword(
-                                            (prevState) => !prevState,
-                                        )
-                                    }
-                                />
-                            )}
-                        </div>
-                        <div className="div-btn">
-                            <p className="p-link">
-                                Don't have a account?
-                                <Link to="/signup" className="txt-red">
-                                    Register
-                                </Link>
-                            </p>
-                        </div>
-                        <div className="div-btn">
-                            <p>
-                                <Link
-                                    to="/forgot-password"
-                                    className="txt-blue"
-                                >
-                                    Forgot password?
-                                </Link>
-                            </p>
-                        </div>
-                        <button className="submit" type="submit">
-                            Sign in
-                        </button>
-                        <div className="signup">
-                            <OAuth />
-                        </div>
-                    </form>
+                                {showPassword ? (
+                                    <AiFillEyeInvisible
+                                        className="icon"
+                                        onClick={() =>
+                                            setShowPassword(
+                                                (prevState) => !prevState,
+                                            )
+                                        }
+                                    />
+                                ) : (
+                                    <AiFillEye
+                                        className="icon"
+                                        onClick={() =>
+                                            setShowPassword(
+                                                (prevState) => !prevState,
+                                            )
+                                        }
+                                    />
+                                )}
+                            </div>
+                            <div className="div-btn">
+                                <p className="p-link">
+                                    Don't have a account?
+                                    <Link to="/signup" className="txt-red">
+                                        Register
+                                    </Link>
+                                </p>
+                                <p>
+                                    <Link
+                                        to="/forgot-password"
+                                        className="txt-blue"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </p>
+                            </div>
+                            <button className="submit" type="submit">
+                                Sign in
+                            </button>
+                            <div className="signup">
+                                <OAuth />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 export default SignIn;

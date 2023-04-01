@@ -29,8 +29,8 @@ const CreateOffer = () => {
     furnished: false,
     description: "",
     offer: false,
-    regularPrice: 0,
-    discountedPrice: 0,
+    regularPrice: 1000,
+    discountedPrice: 900,
     latitude: 0,
     longitude: 0,
     images: {},
@@ -378,7 +378,7 @@ const onChange = (e) => {
         </div>
         {offer && (
           <div className="center-div">
-            <div className="">
+            <div>
               <p className="semibold-p">Discounted price</p>
               <div className="input-div">
                 <input

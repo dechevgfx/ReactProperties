@@ -95,7 +95,7 @@ const Profile = () => {
   return (
     <>
       <section className="container-profile-edit">
-        <h1 className="heading">My Profile</h1>
+        <h1 className="heading">MY PROFILE</h1>
         <div className="div-form">
           <form>
             {/* Name Input */}
