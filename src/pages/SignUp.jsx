@@ -60,50 +60,54 @@ const SignUp = () => {
                 <div className="div-container">
                     <div className="form-div">
                         <form onSubmit={onSubmit}>
-                            <input
-                                type="text"
-                                id="name"
-                                value={name}
-                                onChange={onChange}
-                                placeholder="Full name"
-                                className="input"
-                            />
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={onChange}
-                                placeholder="Email address"
-                                className="input"
-                            />
-                            <div className="pass">
+                            <div className="input-group">
                                 <input
-                                    type={showPassword ? "text" : "password"}
-                                    id="password"
-                                    value={password}
+                                    type="text"
+                                    id="name"
+                                    value={name}
                                     onChange={onChange}
-                                    placeholder="Password"
+                                    placeholder="Full name"
                                     className="input"
                                 />
-                                {showPassword ? (
-                                    <AiFillEyeInvisible
-                                        className="icon"
-                                        onClick={() =>
-                                            setShowPassword(
-                                                (prevState) => !prevState,
-                                            )
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={onChange}
+                                    placeholder="Email address"
+                                    className="input"
+                                />
+                                <div className="pass">
+                                    <input
+                                        type={
+                                            showPassword ? "text" : "password"
                                         }
+                                        id="password"
+                                        value={password}
+                                        onChange={onChange}
+                                        placeholder="Password"
+                                        className="input"
                                     />
-                                ) : (
-                                    <AiFillEye
-                                        className="icon"
-                                        onClick={() =>
-                                            setShowPassword(
-                                                (prevState) => !prevState,
-                                            )
-                                        }
-                                    />
-                                )}
+                                    {showPassword ? (
+                                        <AiFillEyeInvisible
+                                            className="icon"
+                                            onClick={() =>
+                                                setShowPassword(
+                                                    (prevState) => !prevState,
+                                                )
+                                            }
+                                        />
+                                    ) : (
+                                        <AiFillEye
+                                            className="icon"
+                                            onClick={() =>
+                                                setShowPassword(
+                                                    (prevState) => !prevState,
+                                                )
+                                            }
+                                        />
+                                    )}
+                                </div>
                             </div>
                             <div className="div-btn">
                                 <p className="p-link">

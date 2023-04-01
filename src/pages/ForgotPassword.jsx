@@ -28,14 +28,16 @@ const ForgotPassword = () => {
                 <div className="div-container">
                     <div className="form-div">
                         <form onSubmit={onSubmit}>
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={onChange}
-                                placeholder="Email address"
-                                className="input"
-                            />
+                            <div className="input-group">
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={onChange}
+                                    placeholder="Email address"
+                                    className="input"
+                                />
+                            </div>
 
                             <div className="div-btn">
                                 <p className="p-link">
