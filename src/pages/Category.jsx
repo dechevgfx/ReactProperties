@@ -13,6 +13,7 @@ import { db } from "../firebase";
 import Spinner from "../components/Spinner";
 import Offer from "../components/Offer";
 import { useParams } from "react-router-dom";
+import "../styles/Category.css"
 
 const Category = () => {
   const [listings, setListings] = useState(null);
@@ -27,7 +28,7 @@ const Category = () => {
           listingRef,
           where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
-          limit(8)
+          limit(4)
         );
         const querySnap = await getDocs(q);
         const lastVisible = querySnap.docs[querySnap.docs.length - 1];
@@ -57,7 +58,7 @@ const Category = () => {
         where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
-        limit(4)
+        limit(2)
       );
       const querySnap = await getDocs(q);
       const lastVisible = querySnap.docs[querySnap.docs.length - 1];

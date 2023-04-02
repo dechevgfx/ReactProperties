@@ -17,13 +17,30 @@
 }
 
 .div-form {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.372);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
     width: 100%;
 }
 
 .input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+/* .input {
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin-bottom: 1.5rem;
     background-color: #99f2c8;
@@ -34,20 +51,19 @@
     border-radius: 0.25rem;
     border-width: 1px;
     border-color: #d1d5db;
-}
+} */
 
 .options-div {
     display: flex;
     margin-bottom: 1.5rem;
-    font-size: 0.875rem;
     line-height: 1.25rem;
     white-space: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .p-question {
     display: flex;
-    align-items: center;
+    align-items: left;
 }
 
 .txt-red {
@@ -57,13 +73,24 @@
 }
 
 .logout {
-    color: #fff;
-    padding: 10px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    background-color: #2a98ffb4;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+.logout:hover {
     background-color: #2a98ff;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    text-shadow: 1px 1px #000;
 }
 
 .sell-button {
@@ -81,6 +108,7 @@
     border-radius: 0.25rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
 }
 
 .create-link {
@@ -126,24 +154,7 @@
         display: grid;
     }
     .options-div {
-        font-size: 1.125rem;
+        font-size: 1.5rem;
         line-height: 1.75rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .div-form {
-        width: 50%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .list {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-@media (min-width: 1280px) {
-    .list {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }

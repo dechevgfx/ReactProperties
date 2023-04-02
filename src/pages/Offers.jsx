@@ -24,7 +24,7 @@ const Offers = () => {
                 const q = query(
                     listingRef,
                     orderBy("timestamp", "desc"),
-                    limit(6),
+                    limit(4),
                 );
                 const querySnap = await getDocs(q);
                 const lastVisible = querySnap.docs[querySnap.docs.length - 1];
@@ -54,7 +54,7 @@ const Offers = () => {
 
                 orderBy("timestamp", "desc"),
                 startAfter(lastFetchedListing),
-                limit(4),
+                limit(2),
             );
             const querySnap = await getDocs(q);
             const lastVisible = querySnap.docs[querySnap.docs.length - 1];
