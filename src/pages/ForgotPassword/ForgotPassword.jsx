@@ -39,7 +39,7 @@ const ForgotPassword = () => {
                                 />
                             </div>
 
-                            <div className="div-btn">
+                            <div >
                                 <p className="p-link">
                                     Don't have a account?
                                     <Link to="/signup" className="txt-red">
