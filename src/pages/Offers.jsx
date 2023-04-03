@@ -93,14 +93,13 @@ const Offers = () => {
                             </ul>
                         </main>
                         {lastFetchedListing && (
-                            <div className="more">
                                 <button
+                                    type="button"
                                     onClick={onFetchMoreListings}
-                                    className="btn"
+                                    id="btn"
                                 >
                                     Load more
                                 </button>
-                            </div>
                         )}
                     </>
                 ) : (

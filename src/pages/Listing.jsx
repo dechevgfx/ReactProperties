@@ -45,9 +45,6 @@ const Listing = () => {
         }
         fetchListing();
     }, [params.listingId]);
-    if (loading) {
-        return <Spinner />;
-    }
 
     const onCopyLink = () => {
         navigator.clipboard.writeText(window.location.href);
@@ -56,6 +53,10 @@ const Listing = () => {
             setShareLinkCopied(false);
         }, 2000);
     };
+
+    if (loading) {
+        return <Spinner />;
+    }
     return (
         <>
             <Swiper
