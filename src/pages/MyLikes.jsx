@@ -12,31 +12,59 @@ const MyLikes = () => {
     const [listings, setListings] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // useEffect(() => {
+    //     const listingRef = collection(db, "listings");
+    //     const likedListingsQuery = query(
+    //         listingRef,
+    //         orderBy("timestamp", "desc")
+    //     );
+    //     const unsubscribe = onSnapshot(likedListingsQuery, (snapshot) => {
+    //         const likedListings = snapshot.docs.filter((doc) => doc.data().likedBy[auth.currentUser?.uid] === true);
+    //         const listings = [];
+    //         likedListings.forEach((doc) => {
+    //             return listings.push({
+    //                 id: doc.id,
+    //                 data: doc.data(),
+    //             });
+    //         });
+    //         setListings(listings);
+    //         setLoading(false);
+    //     }, (error) => {
+    //         toast.error("Could not fetch listing");
+    //     });
+
+    //     return unsubscribe;
+    // }, [auth.currentUser?.uid]);
     useEffect(() => {
         const listingRef = collection(db, "listings");
         const likedListingsQuery = query(
             listingRef,
-            orderBy("timestamp", "desc")
+            orderBy("timestamp", "desc"),
         );
 
-        const unsubscribe = onSnapshot(likedListingsQuery, (snapshot) => {
-            const likedListings = snapshot.docs.filter((doc) => doc.data().likedBy[auth.currentUser.uid] === true);
-            const listings = [];
-            likedListings.forEach((doc) => {
-                return listings.push({
+        const unsubscribe = onSnapshot(
+            likedListingsQuery,
+            (snapshot) => {
+                const userId = auth.currentUser?.uid;
+                if (!userId) return;
+
+                const likedListings = snapshot.docs.filter(
+                    (doc) => doc.data().likedBy?.[userId],
+                );
+                const listings = likedListings.map((doc) => ({
                     id: doc.id,
                     data: doc.data(),
-                });
-            });
-            setListings(listings);
-            setLoading(false);
-        }, (error) => {
-            toast.error("Could not fetch listing");
-        });
+                }));
+                setListings(listings);
+                setLoading(false);
+            },
+            (error) => {
+                toast.error("Could not fetch listing");
+            },
+        );
 
         return unsubscribe;
-    }, []);
-
+    }, [auth.currentUser]);
     return (
         <>
             <div className="container">
