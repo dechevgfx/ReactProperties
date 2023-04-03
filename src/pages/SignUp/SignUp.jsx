@@ -1,14 +1,14 @@
-import "../styles/Sign.css";
+import "./SignUp.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import OAuth from "../components/OAuth";
+import OAuth from "../../components/OAuth/OAuth";
 import {
     getAuth,
     createUserWithEmailAndPassword,
     updateProfile,
 } from "firebase/auth";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

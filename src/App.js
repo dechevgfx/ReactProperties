@@ -2,19 +2,19 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Offers from "./pages/Offers";
-import ForgotPassword from "./pages/ForgotPassword";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Navigation from "./components/Navigation";
-import PrivateRoute from "./components/Private";
-import CreateOffer from "./pages/CreateOffer";
-import EditOffer from "./pages/EditOffer";
-import Category from "./pages/Category";
-import Listing from "./pages/Listing";
-import MyLikes from "./pages/MyLikes";
+import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
+import Offers from "./pages/Offers/Offers";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import Navigation from "./components/Navigation/Navigation";
+import PrivateRoute from "./components/Private/Private";
+import CreateOffer from "./pages/CreateOffer/CreateOffer";
+import EditOffer from "./pages/EditOffer/EditOffer";
+import Category from "./pages/Category/Category";
+import Listing from "./pages/Listing/Listing";
+import MyLikes from "./pages/MyLikes/MyLikes";
 
 function App() {
     return (

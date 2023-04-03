@@ -1,10 +1,10 @@
-import "../styles/Listing.css";
+import "./Listing.css";
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "../components/Spinner";
-import { db } from "../firebase";
+import Spinner from "../../components/Spinner/Spinner";
+import { db } from "../../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
     Autoplay,
@@ -22,9 +22,9 @@ import {
     FaChair,
 } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
-import Contact from "../components/Contact";
+import Contact from "../../components/Contact/Contact";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import LikeButton from "../components/LikeButton";
+import LikeButton from "../../components/LikeButton/LikeButton";
 
 const Listing = () => {
     const params = useParams();

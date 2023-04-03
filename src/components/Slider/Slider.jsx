@@ -1,8 +1,8 @@
-import "../styles/Slider.css";
+import "./Slider.css";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import Spinner from "../components/Spinner";
-import { db } from "../firebase";
+import Spinner from "../Spinner/Spinner";
+import { db } from "../../firebase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   // EffectCube,

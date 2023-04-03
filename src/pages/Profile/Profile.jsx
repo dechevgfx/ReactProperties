@@ -1,4 +1,4 @@
-import "../styles/Profile.css";
+import "./Profile.css";
 import { getAuth, updateProfile } from "firebase/auth";
 import {
     collection,
@@ -13,10 +13,10 @@ import {
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { TbHomeDollar } from "react-icons/tb";
 import { useEffect } from "react";
-import Offer from "../components/Offer";
+import Offer from "../../components/Offer/Offer";
 
 const Profile = () => {
     const auth = getAuth();

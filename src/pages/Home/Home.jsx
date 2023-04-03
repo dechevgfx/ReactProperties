@@ -9,10 +9,10 @@ import {
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Offer from "../components/Offer";
-import Slider from "../components/Slider";
-import { db } from "../firebase";
-import "../styles/Home.css";
+import Offer from "../../components/Offer/Offer";
+import Slider from "../../components/Slider/Slider";
+import { db } from "../../firebase";
+import "./Home.css";
 
 const Home = () => {
     // Offers

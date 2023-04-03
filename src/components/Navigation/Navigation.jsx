@@ -1,4 +1,4 @@
-import "../styles/Navigation.css";
+import "./Navigation.css";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";

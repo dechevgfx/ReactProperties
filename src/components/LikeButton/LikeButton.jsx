@@ -1,10 +1,10 @@
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { AiOutlineLike } from "react-icons/ai";
 import { getAuth } from "firebase/auth";
-import "../styles/LikeButton.css";
+import "./LikeButton.css"
 
 const LikeButton = () => {
   const params = useParams();

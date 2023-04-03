@@ -1,4 +1,4 @@
-import "../styles/Offer.css";
+import "./Offer.css";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";

@@ -3,20 +3,18 @@
   flex-direction: column;
   width: 100%;
 }
+
 .contact-div {
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
 }
+
 .msg-box {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: #ffffff;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #374151;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -25,6 +23,7 @@
   border-width: 1px;
   border-color: #d1d5db;
 }
+
 .contact-btn {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;

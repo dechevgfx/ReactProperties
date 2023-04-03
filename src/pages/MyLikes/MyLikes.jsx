@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
-import { db } from "../firebase";
-import Spinner from "../components/Spinner";
-import Offer from "../components/Offer";
-import "../styles/MyLikes.css";
+import { db } from "../../firebase";
+import Spinner from "../../components/Spinner/Spinner";
+import Offer from "../../components/Offer/Offer";
+import "./MyLikes.css";
 import { getAuth } from "firebase/auth";
 
 const MyLikes = () => {
