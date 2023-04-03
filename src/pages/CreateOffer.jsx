@@ -177,7 +177,7 @@ const onChange = (e) => {
     return <Spinner />;
   }
   return (
-    <main className="main">
+    <main className="main-offer">
       <h1 className="heading">Create a Offer</h1>
       <form onSubmit={onSubmit}>
         <p className="p-type">Sell / Rent</p>

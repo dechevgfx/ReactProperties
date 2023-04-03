@@ -83,7 +83,7 @@ const Listing = () => {
                 <FiCopy className="icon" />
             </div>
             {shareLinkCopied && <p className="text-msg">Link Copied</p>}
-            <div className="main">
+            <div className="main-listing">
                 <div className="details-container">
                     <div className="information-div">
                         <p className="p-info">
