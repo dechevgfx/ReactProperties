@@ -25,10 +25,6 @@
     right: 3%;
 }
 
-.icon {
-    font-size: 1.45rem;
-    line-height: 1.75rem;
-}
 .text-msg {
     position: fixed;
     z-index: 10;

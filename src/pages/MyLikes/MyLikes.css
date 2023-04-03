@@ -21,11 +21,6 @@
     }
 }
 
-.more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .btn {
     width: fit-content;
     color: rgb(255, 255, 255);
