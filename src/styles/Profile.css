@@ -64,6 +64,7 @@
 .p-question {
     display: flex;
     align-items: left;
+    font-size: 20px;
 }
 
 .txt-red {

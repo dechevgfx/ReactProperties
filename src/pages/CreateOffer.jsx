@@ -182,25 +182,29 @@ const onChange = (e) => {
       <form onSubmit={onSubmit}>
         <p className="p-type">Sell / Rent</p>
         <div className="flex-div">
-          <button
-            type="button"
-            id="type"
-            value="sale"
-            onClick={onChange}
-            className={`btn ${type === "rent" ? "black" : "white"}`}
-          >
-            sell
-          </button>
-          <button
-            type="button"
-            id="type"
-            value="rent"
-            onClick={onChange}
-            className={`btn ${type === "sale" ? "black" : "white"}`}
-          >
-            rent
-          </button>
-        </div>
+                    <button
+                        type="button"
+                        id="type"
+                        value="sale"
+                        onClick={onChange}
+                        className={`btn-r ${
+                            type === "rent" ? "black" : "white"
+                        }`}
+                    >
+                        SELL
+                    </button>
+                    <button
+                        type="button"
+                        id="type"
+                        value="rent"
+                        onClick={onChange}
+                        className={`btn-l ${
+                            type === "sale" ? "black" : "white"
+                        }`}
+                    >
+                        RENT
+                    </button>
+                </div>
         <p className="semibold-p">Name</p>
         <input
           type="text"

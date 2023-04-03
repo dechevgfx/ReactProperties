@@ -117,9 +117,6 @@ const Profile = () => {
                             />
                         </div>
 
-                    <p onClick={onLogout} className="logout">
-                        Sign out
-                    </p>
                         <div className="options-div">
                             <p className="p-question">
                                 Do you want to change your name?
@@ -136,6 +133,9 @@ const Profile = () => {
                                 </span>
                             </p>
                         </div>
+                    <p onClick={onLogout} className="logout">
+                        Sign out
+                    </p>
                     </form>
                     <button type="submit" className="sell-button">
                         <Link to="/create" className="create-link">
