@@ -13,6 +13,7 @@ import { db } from "../../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Spinner from "../../components/Spinner/Spinner";
+import "./EditOffer.css"
 
 const EditListing = () => {
     const navigate = useNavigate();
