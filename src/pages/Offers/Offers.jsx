@@ -18,7 +18,7 @@ const Offers = () => {
     const [loading, setLoading] = useState(true);
     const [lastFetchedListing, setLastFetchListing] = useState(null);
     useEffect(() => {
-        async function fetchListings() {
+        const fetchListings = async () => {
             try {
                 const listingRef = collection(db, "listings");
                 const q = query(
@@ -41,7 +41,7 @@ const Offers = () => {
             } catch (error) {
                 toast.error("Could not fetch listing");
             }
-        }
+        };
 
         fetchListings();
     }, []);
@@ -75,7 +75,7 @@ const Offers = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="offers-container">
                 <h1 className="heading">OUR OFFERS</h1>
                 {loading ? (
                     <Spinner />
@@ -93,13 +93,13 @@ const Offers = () => {
                             </ul>
                         </main>
                         {lastFetchedListing && (
-                                <button
-                                    type="button"
-                                    onClick={onFetchMoreListings}
-                                    id="btn"
-                                >
-                                    Load more
-                                </button>
+                            <button
+                                type="button"
+                                onClick={onFetchMoreListings}
+                                id="btn"
+                            >
+                                Load more
+                            </button>
                         )}
                     </>
                 ) : (

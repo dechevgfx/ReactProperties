@@ -14,12 +14,12 @@ const SignIn = () => {
     });
     const { email, password } = formData;
     const navigate = useNavigate();
-    function onChange(e) {
+    const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
             [e.target.id]: e.target.value,
         }));
-    }
+    };
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +35,7 @@ const SignIn = () => {
                 navigate("/");
             }
         } catch (error) {
-            toast.error("Bad user credentials");
+            toast.error(error);
         }
     };
     return (
@@ -86,7 +86,7 @@ const SignIn = () => {
                                     )}
                                 </div>
                             </div>
-                            <div >
+                            <div>
                                 <p className="p-link">
                                     Don't have a account?
                                     <Link to="/signup" className="txt-red">

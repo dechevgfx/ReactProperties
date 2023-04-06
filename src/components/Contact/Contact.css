@@ -31,8 +31,6 @@
   padding-right: 1.75rem;
   margin-bottom: 1.5rem;
   background-color: #2563eb;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #ffffff;
   font-size: 0.875rem;
   line-height: 1.25rem;

@@ -9,6 +9,7 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Navigation from "./components/Navigation/Navigation";
+import Error from "./components/Error/Error";
 import PrivateRoute from "./components/Private/Private";
 import CreateOffer from "./pages/CreateOffer/CreateOffer";
 import EditOffer from "./pages/EditOffer/EditOffer";
@@ -53,6 +54,7 @@ function App() {
                             element={<EditOffer />}
                         />
                     </Route>
+                    <Route path="*" element={<Error />} />
                 </Routes>
             </Router>
             <ToastContainer

@@ -29,10 +29,10 @@ const Profile = () => {
     const [listings, setListings] = useState(null);
     const [loading, setLoading] = useState(true);
     const { name, email } = formData;
-    function onLogout() {
+    const onLogout = () => {
         auth.signOut();
         navigate("/");
-    }
+    };
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -71,7 +71,7 @@ const Profile = () => {
     };
 
     useEffect(() => {
-        async function fetchUserListings() {
+        const fetchUserListings = async () => {
             const listingRef = collection(db, "listings");
             const q = query(
                 listingRef,
@@ -88,7 +88,7 @@ const Profile = () => {
             });
             setListings(listings);
             setLoading(false);
-        }
+        };
         fetchUserListings();
     }, [auth.currentUser.uid]);
 
@@ -133,9 +133,9 @@ const Profile = () => {
                                 </span>
                             </p>
                         </div>
-                    <p onClick={onLogout} className="logout">
-                        Sign out
-                    </p>
+                        <p onClick={onLogout} className="logout">
+                            Sign out
+                        </p>
                     </form>
                     <button type="submit" className="sell-button">
                         <Link to="/create" className="create-link">

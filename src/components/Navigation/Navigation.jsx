@@ -56,7 +56,7 @@ const Navigation = () => {
                                 className={pathMatch("/my-likes")}
                                 onClick={() => navigate("/my-likes")}
                             >
-                                MY LIKES
+                                LIKES
                             </li>
                         </>
                     ) : (

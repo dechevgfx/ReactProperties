@@ -25,6 +25,11 @@
     right: 3%;
 }
 
+.icon {
+    font-size: 1.45rem;
+    line-height: 1.75rem;
+}
+
 .text-msg {
     position: fixed;
     z-index: 10;
@@ -57,7 +62,7 @@
 @media (min-width: 1024px) {
     .details-container {
         margin-left: auto;
-        margin-right: auto;
+        /* margin-right: auto; */
         margin-left: 1.25rem;
     }
 }
@@ -174,10 +179,6 @@
     padding-left: 1.75rem;
     padding-right: 1.75rem;
     background-color: #2563eb;
-    transition-property: background-color, border-color, color, fill, stroke,
-        opacity, box-shadow, transform;
-    transition-duration: 150ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     color: #ffffff;
     font-size: 0.875rem;
     line-height: 1.25rem;

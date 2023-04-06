@@ -1,13 +1,16 @@
 .li-item {
     position: relative;
     list-style: none;
-    width: 100%;
+    width: 95%;
     height: 300px;
     margin-bottom: 20px;
 }
-.li-item:hover .moment-div-container{
-        height: 200px;
-
+li{
+    border-color: #e74c3c;
+    border-width: 20px;
+}
+.li-item:hover .moment-div-container {
+    height: 200px;
 }
 
 .contents {
@@ -16,6 +19,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .img {

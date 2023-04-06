@@ -7,7 +7,6 @@ import { MdEdit } from "react-icons/md";
 
 const Offer = ({ listing, id, onEdit, onDelete }) => {
     return (
-        <>
             <li className="li-item">
                 <Link
                     className="contents"
@@ -79,7 +78,6 @@ const Offer = ({ listing, id, onEdit, onDelete }) => {
                     />
                 )}
             </li>
-        </>
     );
 };
 export default Offer;

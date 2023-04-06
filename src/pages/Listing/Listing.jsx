@@ -35,14 +35,14 @@ const Listing = () => {
     const [contactLandlord, setContactLandlord] = useState(false);
     SwiperCore.use([Autoplay, Navigation, Pagination]);
     useEffect(() => {
-        async function fetchListing() {
+        const fetchListing = async () => {
             const docRef = doc(db, "listings", params.listingId);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 setListing(docSnap.data());
                 setLoading(false);
             }
-        }
+        };
         fetchListing();
     }, [params.listingId]);
 

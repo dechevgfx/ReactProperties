@@ -18,7 +18,7 @@ const Home = () => {
     // Offers
     const [offerListings, setOfferListings] = useState(null);
     useEffect(() => {
-        async function fetchListings() {
+        const fetchListings = async () => {
             try {
                 // get reference
                 const listingsRef = collection(db, "listings");
@@ -42,7 +42,7 @@ const Home = () => {
             } catch (error) {
                 console.log(error);
             }
-        }
+        };
         fetchListings();
     }, []);
     // Places for rent
