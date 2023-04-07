@@ -115,10 +115,7 @@ const Listing = () => {
                                 </p>
                             )}
                         </div>
-                        <p className={styles.pDesc}>
-                            <span className={styles.spanDesc}>Description - </span>
-                            {listing.description}
-                        </p>
+
                         <ul className={styles.infoList}>
                             <li className={styles.listItem}>
                                 <FaBed className={styles.iconInfo} />
@@ -145,6 +142,12 @@ const Listing = () => {
                                     : "Not furnished"}
                             </li>
                         </ul>
+                        <p className={styles.pDesc}>
+                            <span className={styles.spanDesc}>
+                                Description -{" "}
+                            </span>
+                            {listing.description}
+                        </p>
                         {listing.userRef !== auth.currentUser?.uid &&
                             !contactLandlord &&
                             auth.currentUser && (

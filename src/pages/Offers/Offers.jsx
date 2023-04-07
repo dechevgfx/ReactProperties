@@ -104,7 +104,9 @@ const Offers = () => {
                         )}
                     </>
                 ) : (
-                    <p>There are no current offers</p>
+                    <h3 className={styles.heading}>
+                        There are no current offers!
+                    </h3>
                 )}
             </div>
         </>

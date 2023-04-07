@@ -110,7 +110,7 @@ const Home = () => {
             <div>
                 <Slider />
                 <div className={styles.recentContainer}>
-                    {offerListings && offerListings.length > 0 && (
+                    {offerListings && offerListings.length > 0 ? (
                         <div className={styles.listings}>
                             <h1 className={styles.heading}>RECENT LISTINGS</h1>
                             <hr />
@@ -130,7 +130,25 @@ const Home = () => {
                                 </p>
                             </Link>
                         </div>
+                    ) : (
+                        <>
+                            <div className={styles.listings}>
+                                <h1 className={styles.heading}>
+                                    RECENT LISTINGS
+                                </h1>
+                                <hr />
+                                <h3 className={styles.heading}>
+                                    No listings yet.
+                                </h3>
+                            </div>
+                            <Link to="/profile">
+                                <p className={styles.showMore}>
+                                BEGIN LISTING YOUR PROPERTIES
+                                </p>
+                            </Link>
+                        </>
                     )}
+
                     {rentListings && rentListings.length > 0 && (
                         <div className={styles.listings}>
                             <h1 className={styles.heading}>FOR RENT</h1>

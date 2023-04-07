@@ -45,7 +45,7 @@ const MyLikes = () => {
         <>
             <div className={styles.container}>
                 <h1 className={styles.heading}>MY LIKES</h1>
-<hr />
+                <hr />
                 {loading ? (
                     <Spinner />
                 ) : listings && listings.length > 0 ? (
@@ -63,7 +63,9 @@ const MyLikes = () => {
                         </main>
                     </>
                 ) : (
-                    <p>You have 0 liked properties</p>
+                    <h3 className={styles.heading}>
+                        You have 0 liked properties!
+                    </h3>
                 )}
             </div>
         </>

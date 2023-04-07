@@ -1,6 +1,6 @@
 .mainListing {
     align-items: center;
-    width: 98%;
+    width: 100%;
 }
 .swiperDiv {
     overflow: hidden;
@@ -67,7 +67,7 @@
     }
 }
 
-.information-Div {
+.informationDiv {
     width: 100%;
 }
 
@@ -90,8 +90,8 @@
     color: #047857;
 }
 .fullInfo {
-    display: grid;
-    width: 98%;
+    display: flex;
+    width: 100%;
     align-items: center;
 }
 .listingType {
@@ -127,19 +127,12 @@
 }
 
 .infoList {
-    display: flex;
-    margin-left: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     font-size: 0.875rem;
-    line-height: 1.25rem;
     font-weight: 600;
     align-items: center;
     margin-bottom: 1.5rem;
-}
-
-@media (min-width: 640px) {
-    .infoList {
-        margin-left: 2.5rem;
-    }
 }
 
 .listItem {
