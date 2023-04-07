@@ -4,7 +4,7 @@ import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import Spinner from "../../components/Spinner/Spinner";
 import Offer from "../../components/Offer/Offer";
-import "./MyLikes.css";
+import styles from "./MyLikes.module.css";
 import { getAuth } from "firebase/auth";
 
 const MyLikes = () => {
@@ -18,7 +18,7 @@ const MyLikes = () => {
             orderBy("timestamp", "desc"),
         );
 
-        const unsubscribe = onSnapshot(
+        const likes = onSnapshot(
             likedListingsQuery,
             (snapshot) => {
                 const userId = auth.currentUser?.uid;
@@ -39,18 +39,19 @@ const MyLikes = () => {
             },
         );
 
-        return unsubscribe;
+        return likes;
     }, [auth.currentUser]);
     return (
         <>
-            <div className="container">
-                <h1 className="heading">MY LIKES</h1>
+            <div className={styles.container}>
+                <h1 className={styles.heading}>MY LIKES</h1>
+<hr />
                 {loading ? (
                     <Spinner />
                 ) : listings && listings.length > 0 ? (
                     <>
                         <main>
-                            <ul className="list">
+                            <ul className={styles.list}>
                                 {listings.map((listing) => (
                                     <Offer
                                         key={listing.id}

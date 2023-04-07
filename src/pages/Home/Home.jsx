@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import Offer from "../../components/Offer/Offer";
 import Slider from "../../components/Slider/Slider";
 import { db } from "../../firebase";
-import "./Home.css";
+import styles from "./Home.module.css";
 
 const Home = () => {
     // Offers
@@ -109,14 +109,13 @@ const Home = () => {
         <>
             <div>
                 <Slider />
-                <div className="recent-container">
+                <div className={styles.recentContainer}>
                     {offerListings && offerListings.length > 0 && (
-                        <div className="listings">
-                            <h2 className="heading">RECENT LISTINGS</h2>
-                            <Link to="/offers">
-                                <p className="show-more">Show all listings</p>
-                            </Link>
-                            <ul className="list">
+                        <div className={styles.listings}>
+                            <h1 className={styles.heading}>RECENT LISTINGS</h1>
+                            <hr />
+
+                            <ul className={styles.list}>
                                 {offerListings.map((listing) => (
                                     <Offer
                                         key={listing.id}
@@ -125,17 +124,19 @@ const Home = () => {
                                     />
                                 ))}
                             </ul>
+                            <Link to="/offers">
+                                <p className={styles.showMore}>
+                                    Show all listings
+                                </p>
+                            </Link>
                         </div>
                     )}
                     {rentListings && rentListings.length > 0 && (
-                        <div className="listings">
-                            <h2 className="heading">FOR RENT</h2>
-                            <Link to="/category/rent">
-                                <p className="show-more">
-                                    Show more places for rent
-                                </p>
-                            </Link>
-                            <ul className="list">
+                        <div className={styles.listings}>
+                            <h1 className={styles.heading}>FOR RENT</h1>
+                            <hr />
+
+                            <ul className={styles.list}>
                                 {rentListings.map((listing) => (
                                     <Offer
                                         key={listing.id}
@@ -144,17 +145,19 @@ const Home = () => {
                                     />
                                 ))}
                             </ul>
+                            <Link to="/category/rent">
+                                <p className={styles.showMore}>
+                                    Show more places for rent
+                                </p>
+                            </Link>
                         </div>
                     )}
                     {saleListings && saleListings.length > 0 && (
-                        <div className="listings">
-                            <h2 className="heading">FOR SALE</h2>
-                            <Link to="/category/sale">
-                                <p className="show-more">
-                                    Show more places for sale
-                                </p>
-                            </Link>
-                            <ul className="list">
+                        <div className={styles.listings}>
+                            <h1 className={styles.heading}>FOR SALE</h1>
+                            <hr />
+
+                            <ul className={styles.list}>
                                 {saleListings.map((listing) => (
                                     <Offer
                                         key={listing.id}
@@ -163,6 +166,11 @@ const Home = () => {
                                     />
                                 ))}
                             </ul>
+                            <Link to="/category/sale">
+                                <p className={styles.showMore}>
+                                    Show more places for sale
+                                </p>
+                            </Link>
                         </div>
                     )}
                 </div>

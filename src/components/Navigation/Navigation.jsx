@@ -1,4 +1,4 @@
-import "./Navigation.css";
+import styles from "./Navigation.module.css";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -28,16 +28,16 @@ const Navigation = () => {
 
     return (
         <header>
-            <div className="header-container">
+            <div className={styles.headerContainer}>
                 <div>
                     <img
                         src={process.env.PUBLIC_URL + "/logo-no-background.png"}
-                        className="logo"
+                        className={styles.logo}
                         alt="logo"
                         onClick={() => navigate("/")}
                     />
                 </div>
-                <ul className="navbar">
+                <ul className={styles.navbar}>
                     <li
                         className={pathMatch("/")}
                         onClick={() => navigate("/")}

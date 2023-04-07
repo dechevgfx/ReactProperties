@@ -11,7 +11,7 @@ import {
 import { db } from "../../firebase";
 import Spinner from "../../components/Spinner/Spinner";
 import Offer from "../../components/Offer/Offer";
-import "./Offers.css";
+import styles from "./Offers.module.css";
 
 const Offers = () => {
     const [listings, setListings] = useState(null);
@@ -75,14 +75,15 @@ const Offers = () => {
 
     return (
         <>
-            <div className="offers-container">
-                <h1 className="heading">OUR OFFERS</h1>
+            <div className={styles.offersContainer}>
+                <h1 className={styles.heading}>OUR OFFERS</h1>
+                <hr />
                 {loading ? (
                     <Spinner />
                 ) : listings && listings.length > 0 ? (
                     <>
                         <main>
-                            <ul className="list">
+                            <ul className={styles.list}>
                                 {listings.map((listing) => (
                                     <Offer
                                         key={listing.id}
@@ -96,9 +97,9 @@ const Offers = () => {
                             <button
                                 type="button"
                                 onClick={onFetchMoreListings}
-                                id="btn"
+                                id={styles.btn}
                             >
-                                Load more
+                                LOAD MORE
                             </button>
                         )}
                     </>

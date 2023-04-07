@@ -1,4 +1,4 @@
-.container-profile-edit {
+.containerProfileEdit {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.div-form {
+.divForm {
     width: 100%;
     max-width: 400px;
     padding: 40px;
@@ -25,7 +25,7 @@
     border-radius: 5px;
 }
 
-.input-group {
+.inputGroup {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -53,7 +53,7 @@
     border-color: #d1d5db;
 } */
 
-.options-div {
+.optionsDiv {
     display: flex;
     margin-bottom: 1.5rem;
     line-height: 1.25rem;
@@ -61,13 +61,13 @@
     justify-content: flex-start;
 }
 
-.p-question {
+.pQuestion {
     display: flex;
     align-items: left;
     font-size: 20px;
 }
 
-.txt-red {
+.txtRed {
     margin-left: 0.25rem;
     color: #dc2626;
     cursor: pointer;
@@ -94,7 +94,7 @@
     background-color: #2a98ff;
 }
 
-.sell-button {
+.sellButton {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     padding-left: 1.75rem;
@@ -112,14 +112,14 @@
     cursor: pointer;
 }
 
-.create-link {
+.createLink {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #374151;
 }
 
-.home-icon {
+.homeIcon {
     padding: 0.25rem;
     margin-right: 0.5rem;
     background-color: #ff5252;
@@ -129,7 +129,7 @@
     border-width: 2px;
 }
 
-.my-listings-div {
+.myListingsDiv {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     margin-left: auto;
@@ -138,7 +138,7 @@
     max-width: 82rem;
 }
 
-.listings-heading {
+.listingsHeading {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -154,8 +154,19 @@
     .list {
         display: grid;
     }
-    .options-div {
+    .optionsDiv {
         font-size: 1.5rem;
         line-height: 1.75rem;
     }
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0)
+    );
 }

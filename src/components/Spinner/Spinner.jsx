@@ -1,12 +1,16 @@
 import spinner from "../../assets/svg/Pulse-1s-200px.svg";
-import "./Spinner.css";
+import styles from "./Spinner.module.css";
 const Spinner = () => {
-  return (
-    <div className="spinner-div">
-      <div>
-        <img src={spinner} alt="Loading..." className="img-spin" />
-      </div>
-    </div>
-  );
+    return (
+        <div className={styles.spinnerDiv}>
+            <div>
+                <img
+                    src={spinner}
+                    alt="Loading..."
+                    className={styles.imgSpin}
+                />
+            </div>
+        </div>
+    );
 };
 export default Spinner;

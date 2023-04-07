@@ -1,4 +1,4 @@
-import "./Profile.css";
+import styles from "./Profile.module.css";
 import { getAuth, updateProfile } from "firebase/auth";
 import {
     collection,
@@ -94,18 +94,19 @@ const Profile = () => {
 
     return (
         <>
-            <section className="container-profile-edit">
-                <h1 className="heading">MY PROFILE</h1>
-                <div className="div-form">
+            <section className={styles.containerProfileEdit}>
+                <h1 className={styles.heading}>MY PROFILE</h1>
+<hr />
+                <div className={styles.divForm}>
                     <form>
-                        <div className="input-group">
+                        <div className={styles.inputGroup}>
                             <input
                                 type="text"
                                 id="name"
                                 value={name}
                                 disabled={!changeDetails}
                                 onChange={onChange}
-                                className="input"
+                                className={styles.input}
                             />
 
                             <input
@@ -113,12 +114,12 @@ const Profile = () => {
                                 id="email"
                                 value={email}
                                 disabled
-                                className="input"
+                                className={styles.input}
                             />
                         </div>
 
-                        <div className="options-div">
-                            <p className="p-question">
+                        <div className={styles.optionsDiv}>
+                            <p className={styles.pQuestion}>
                                 Do you want to change your name?
                                 <span
                                     onClick={() => {
@@ -127,30 +128,30 @@ const Profile = () => {
                                             (prevState) => !prevState,
                                         );
                                     }}
-                                    className="txt-red"
+                                    className={styles.txtRed}
                                 >
                                     {changeDetails ? "Apply changes" : "Edit"}
                                 </span>
                             </p>
                         </div>
-                        <p onClick={onLogout} className="logout">
+                        <p onClick={onLogout} className={styles.logout}>
                             Sign out
                         </p>
                     </form>
-                    <button type="submit" className="sell-button">
-                        <Link to="/create" className="create-link">
-                            <TbHomeDollar className="home-icon" />
+                    <button type="submit" className={styles.sellButton}>
+                        <Link to="/create" className={styles.createLink}>
+                            <TbHomeDollar className={styles.homeIcon} />
                             ADD PROPERTY TO YOUR LISTINGS
                         </Link>
                     </button>
                 </div>
             </section>
 
-            <div className="my-listings-div">
+            <div className={styles.myListingsDiv}>
                 {!loading && listings.length > 0 && (
                     <>
-                        <h2 className="listing-heading">My Listings</h2>
-                        <ul className="list">
+                        <h2 className={styles.listingHeading}>My Listings</h2>
+                        <ul className={styles.list}>
                             {listings.map((listing) => (
                                 <Offer
                                     key={listing.id}

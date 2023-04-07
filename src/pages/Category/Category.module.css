@@ -1,10 +1,7 @@
 .container {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 82rem;
 }
+
 .heading {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -14,26 +11,37 @@
     text-align: center;
 }
 
-@media (min-width: 640px) {
-    .list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.btn {
+.showMore {
+    display: block;
+    margin: auto;
     width: fit-content;
     color: rgb(255, 255, 255);
     background-color: #1f4037;
     font-size: 16px;
     font-weight: bold;
     opacity: 0.7;
-    display: inline-block;
     padding: 10px 20px;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.btn:hover {
+.showMore:hover {
     opacity: 1;
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0)
+    );
 }

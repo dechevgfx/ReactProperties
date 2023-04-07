@@ -1,4 +1,4 @@
-import "./SignUp.css";
+import styles from "./SignUp.module.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -56,18 +56,20 @@ const SignUp = () => {
     return (
         <>
             <section>
-                <h1 className="heading">Sign Up</h1>
-                <div className="div-container">
-                    <div className="form-div">
+                <h1 className={styles.heading}>SIGN UP</h1>
+                <hr />
+                <br />
+                <div className={styles.divContainer}>
+                    <div className={styles.formDiv}>
                         <form onSubmit={onSubmit}>
-                            <div className="input-group">
+                            <div className={styles.inputGroup}>
                                 <input
                                     type="text"
                                     id="name"
                                     value={name}
                                     onChange={onChange}
                                     placeholder="Full name"
-                                    className="input"
+                                    className={styles.input}
                                 />
                                 <input
                                     type="email"
@@ -75,9 +77,9 @@ const SignUp = () => {
                                     value={email}
                                     onChange={onChange}
                                     placeholder="Email address"
-                                    className="input"
+                                    className={styles.input}
                                 />
-                                <div className="pass">
+                                <div className={styles.pass}>
                                     <input
                                         type={
                                             showPassword ? "text" : "password"
@@ -86,11 +88,11 @@ const SignUp = () => {
                                         value={password}
                                         onChange={onChange}
                                         placeholder="Password"
-                                        className="input"
+                                        className={styles.input}
                                     />
                                     {showPassword ? (
                                         <AiFillEyeInvisible
-                                            className="icon"
+                                            className={styles.icon}
                                             onClick={() =>
                                                 setShowPassword(
                                                     (prevState) => !prevState,
@@ -99,7 +101,7 @@ const SignUp = () => {
                                         />
                                     ) : (
                                         <AiFillEye
-                                            className="icon"
+                                            className={styles.icon}
                                             onClick={() =>
                                                 setShowPassword(
                                                     (prevState) => !prevState,
@@ -110,22 +112,25 @@ const SignUp = () => {
                                 </div>
                             </div>
                             <div>
-                                <p className="p-link">
+                                <p className={styles.pLink}>
                                     Have a account?
-                                    <Link to="/signin" className="txt-red">
+                                    <Link
+                                        to="/signin"
+                                        className={styles.txtRed}
+                                    >
                                         Sign in
                                     </Link>
                                 </p>
                                 <p>
                                     <Link
                                         to="/forgot-password"
-                                        className="txt-blue"
+                                        className={styles.txtBlue}
                                     >
                                         Forgot password?
                                     </Link>
                                 </p>
                             </div>
-                            <button className="submit" type="submit">
+                            <button className={styles.submit} type="submit">
                                 Sign up
                             </button>
                             <OAuth />

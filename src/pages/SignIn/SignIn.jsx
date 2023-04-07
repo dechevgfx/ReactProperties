@@ -1,4 +1,4 @@
-import "./SignIn.css";
+import styles from "./SignIn.module.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
@@ -35,26 +35,29 @@ const SignIn = () => {
                 navigate("/");
             }
         } catch (error) {
-            toast.error(error);
+            toast.error("Email or password incorrect!");
         }
     };
     return (
         <>
             <section>
-                <h1 className="heading">Sign In</h1>
-                <div className="div-container">
-                    <div className="form-div">
+                <h1 className={styles.heading}>SIGN IN</h1>
+                <hr />
+                <br />
+
+                <div className={styles.divContainer}>
+                    <div className={styles.formDiv}>
                         <form onSubmit={onSubmit}>
-                            <div className="input-group">
+                            <div className={styles.inputGroup}>
                                 <input
                                     type="email"
                                     id="email"
                                     value={email}
                                     onChange={onChange}
                                     placeholder="Email address"
-                                    className="input"
+                                    className={styles.input}
                                 />
-                                <div className="pass">
+                                <div className={styles.pass}>
                                     <input
                                         type={
                                             showPassword ? "text" : "password"
@@ -63,11 +66,11 @@ const SignIn = () => {
                                         value={password}
                                         onChange={onChange}
                                         placeholder="Password"
-                                        className="input"
+                                        className={styles.input}
                                     />
                                     {showPassword ? (
                                         <AiFillEyeInvisible
-                                            className="icon"
+                                            className={styles.icon}
                                             onClick={() =>
                                                 setShowPassword(
                                                     (prevState) => !prevState,
@@ -76,7 +79,7 @@ const SignIn = () => {
                                         />
                                     ) : (
                                         <AiFillEye
-                                            className="icon"
+                                            className={styles.icon}
                                             onClick={() =>
                                                 setShowPassword(
                                                     (prevState) => !prevState,
@@ -87,25 +90,28 @@ const SignIn = () => {
                                 </div>
                             </div>
                             <div>
-                                <p className="p-link">
+                                <p className={styles.pLink}>
                                     Don't have a account?
-                                    <Link to="/signup" className="txt-red">
+                                    <Link
+                                        to="/signup"
+                                        className={styles.txtRed}
+                                    >
                                         Register
                                     </Link>
                                 </p>
                                 <p>
                                     <Link
                                         to="/forgot-password"
-                                        className="txt-blue"
+                                        className={styles.txtBlue}
                                     >
                                         Forgot password?
                                     </Link>
                                 </p>
                             </div>
-                            <button className="submit" type="submit">
+                            <button className={styles.submit} type="submit">
                                 Sign in
                             </button>
-                            <div className="signup">
+                            <div className={styles.signup}>
                                 <OAuth />
                             </div>
                         </form>

@@ -1,4 +1,4 @@
-.error-message {
+.errorMessage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 1rem;
     font-size: 100px;
 }
-.err-btn {
+.errBtn {
     width: fit-content;
     color: rgb(255, 255, 255);
     background-color: #169875;
@@ -19,13 +19,13 @@
     border-width: 2px;
     padding: 10px 20px;
 }
-.err-btn:hover {
+.errBtn:hover {
     cursor: pointer;
     opacity: 1;
     border-color: rgb(0, 255, 153);
 }
 
-.button-error {
+.buttonError {
     display: flex;
     justify-content: center;
     align-items: center;

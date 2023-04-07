@@ -1,4 +1,4 @@
-import "./Listing.css";
+import styles from "./Listing.module.css";
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -70,7 +70,7 @@ const Listing = () => {
                 {listing.imgUrls.map((url, index) => (
                     <SwiperSlide key={index}>
                         <div
-                            className="swiper-div"
+                            className={styles.swiperDiv}
                             style={{
                                 background: `url(${listing.imgUrls[index]}) center no-repeat`,
                                 backgroundSize: "cover",
@@ -80,14 +80,14 @@ const Listing = () => {
                 ))}
             </Swiper>
             {auth.currentUser && <LikeButton />}
-            <div className="share-btn" onClick={onCopyLink}>
-                <FiCopy className="icon" />
+            <div className={styles.shareBtn} onClick={onCopyLink}>
+                <FiCopy className={styles.icon} />
             </div>
-            {shareLinkCopied && <p className="text-msg">Link Copied</p>}
-            <div className="main-listing">
-                <div className="details-container">
-                    <div className="information-div">
-                        <p className="p-info">
+            {shareLinkCopied && <p className={styles.textMsg}>Link Copied</p>}
+            <div className={styles.mainListing}>
+                <div className={styles.detailsContainer}>
+                    <div className={styles.informationDiv}>
+                        <p className={styles.pInfo}>
                             {listing.name} - ${" "}
                             {listing.offer
                                 ? listing.discountedPrice
@@ -98,16 +98,16 @@ const Listing = () => {
                                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             {listing.type === "rent" ? " / month" : ""}
                         </p>
-                        <p className="p-info-semi">
-                            <FaMapMarkerAlt className="address-point" />
+                        <p className={styles.pInfoSemi}>
+                            <FaMapMarkerAlt className={styles.addressPoint} />
                             {listing.address}
                         </p>
-                        <div className="full-info">
-                            <p className="listing-type">
+                        <div className={styles.fullInfo}>
+                            <p className={styles.listingType}>
                                 {listing.type === "rent" ? "Rent" : "Sale"}
                             </p>
                             {listing.offer && (
-                                <p className="listing-price">
+                                <p className={styles.listingPrice}>
                                     $
                                     {+listing.regularPrice -
                                         +listing.discountedPrice}{" "}
@@ -115,31 +115,31 @@ const Listing = () => {
                                 </p>
                             )}
                         </div>
-                        <p className="p-desc">
-                            <span className="span-desc">Description - </span>
+                        <p className={styles.pDesc}>
+                            <span className={styles.spanDesc}>Description - </span>
                             {listing.description}
                         </p>
-                        <ul className="info-list">
-                            <li className="list-item">
-                                <FaBed className="icon-info" />
+                        <ul className={styles.infoList}>
+                            <li className={styles.listItem}>
+                                <FaBed className={styles.iconInfo} />
                                 {+listing.bedrooms > 1
                                     ? `${listing.bedrooms} Beds`
                                     : "1 Bed"}
                             </li>
-                            <li className="list-item">
-                                <FaBath className="icon-info" />
+                            <li className={styles.listItem}>
+                                <FaBath className={styles.iconInfo} />
                                 {+listing.bathrooms > 1
                                     ? `${listing.bathrooms} Baths`
                                     : "1 Bath"}
                             </li>
-                            <li className="list-item">
-                                <FaParking className="icon-info" />
+                            <li className={styles.listItem}>
+                                <FaParking className={styles.iconInfo} />
                                 {listing.parking
                                     ? "Parking spot"
                                     : "No parking"}
                             </li>
-                            <li className="list-item">
-                                <FaChair className="icon-info" />
+                            <li className={styles.listItem}>
+                                <FaChair className={styles.iconInfo} />
                                 {listing.furnished
                                     ? "Furnished"
                                     : "Not furnished"}
@@ -148,10 +148,10 @@ const Listing = () => {
                         {listing.userRef !== auth.currentUser?.uid &&
                             !contactLandlord &&
                             auth.currentUser && (
-                                <div className="contact-div">
+                                <div className={styles.contactDiv}>
                                     <button
                                         onClick={() => setContactLandlord(true)}
-                                        className="contact-btn"
+                                        className={styles.contactBtn}
                                     >
                                         Contact Landlord
                                     </button>
@@ -164,7 +164,7 @@ const Listing = () => {
                             />
                         )}
                     </div>
-                    <div className="map-div">
+                    <div className={styles.mapDiv}>
                         <MapContainer
                             center={[
                                 listing.geolocation.lat,

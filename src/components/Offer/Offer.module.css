@@ -1,4 +1,4 @@
-.li-item {
+.liItem {
     position: relative;
     list-style: none;
     width: 95%;
@@ -9,7 +9,7 @@ li{
     border-color: #e74c3c;
     border-width: 20px;
 }
-.li-item:hover .moment-div-container {
+.liItem:hover .momentDivContainer {
     height: 200px;
 }
 
@@ -31,7 +31,7 @@ li{
     object-fit: cover;
 }
 
-.moment-item {
+.momentItem {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -44,7 +44,7 @@ li{
     text-shadow: 1px 1px #000;
 }
 
-.moment-div-container {
+.momentDivContainer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -56,7 +56,7 @@ li{
     transition: height 0.5s ease;
 }
 
-.moment-div {
+.momentDiv {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -67,7 +67,7 @@ li{
     margin-right: 10px;
 }
 
-.location-address {
+.locationAddress {
     font-size: 16px;
 }
 
@@ -81,16 +81,16 @@ li{
     margin-bottom: 10px;
 }
 
-.div-property {
+.divProperty {
     display: flex;
     /* margin-bottom: 10px; */
 }
 
-.bed-bath {
+.bedBath {
     margin-right: 20px;
 }
 
-.text-info {
+.textInfo {
     font-size: 16px;
 }
 .delete {

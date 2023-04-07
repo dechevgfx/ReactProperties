@@ -13,7 +13,7 @@ import { db } from "../../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Spinner from "../../components/Spinner/Spinner";
-import "./EditOffer.css"
+import styles from "./EditOffer.module.css";
 
 const EditListing = () => {
     const navigate = useNavigate();
@@ -80,6 +80,8 @@ const EditListing = () => {
         fetchListing();
     }, [navigate, params.listingId]);
 
+    const btnClass = type === "rent" ? styles.black : styles.white;
+
     const onChange = (e) => {
         let boolean = null;
         if (e.target.value === "true") {
@@ -111,9 +113,9 @@ const EditListing = () => {
             toast.error("Discounted price needs to be less than regular price");
             return;
         }
-        if (images.length > 10) {
+        if (images.length > 6) {
             setLoading(false);
-            toast.error("Upload maximum 10 images!");
+            toast.error("Upload maximum 6 images!");
             return;
         }
         let geolocation = {};
@@ -214,18 +216,19 @@ const EditListing = () => {
         return <Spinner />;
     }
     return (
-        <main className="main-offer">
-            <h1 className="heading">Edit Listing</h1>
+        <main className={styles.mainOffer}>
+            <h1 className={styles.heading}>Edit Listing</h1>
+            <hr />
             <form onSubmit={onSubmit}>
-                <p className="p-type">Sell / Rent</p>
-                <div className="flex-div">
+                <p className={styles.pType}>Sell / Rent</p>
+                <div className={styles.flexDiv}>
                     <button
                         type="button"
                         id="type"
                         value="sale"
                         onClick={onChange}
-                        className={`btn-r ${
-                            type === "rent" ? "black" : "white"
+                        className={`${styles.btnR} ${
+                            type === "rent" ? styles.black : styles.white
                         }`}
                     >
                         SELL
@@ -235,14 +238,14 @@ const EditListing = () => {
                         id="type"
                         value="rent"
                         onClick={onChange}
-                        className={`btn-l ${
-                            type === "sale" ? "black" : "white"
+                        className={`${styles.btnL} ${
+                            type === "sale" ? styles.black : styles.white
                         }`}
                     >
                         RENT
                     </button>
                 </div>
-                <p className="semibold-p">Name</p>
+                <p className={styles.semiboldP}>Name</p>
                 <input
                     type="text"
                     id="name"
@@ -252,10 +255,10 @@ const EditListing = () => {
                     maxLength="32"
                     minLength="10"
                     required
-                    className="text-inputs"
+                    className={styles.textInputs}
                 />
 
-                <p className="semibold-p">Address</p>
+                <p className={styles.semiboldP}>Address</p>
                 <textarea
                     type="text"
                     id="address"
@@ -263,12 +266,12 @@ const EditListing = () => {
                     onChange={onChange}
                     placeholder="Address"
                     required
-                    className="text-inputs"
+                    className={styles.textInputs}
                 />
                 {!geolocationEnabled && (
-                    <div className="flex-start">
-                        <div className="">
-                            <p className="semibold-p">Latitude</p>
+                    <div className={styles.flexStart}>
+                        <div>
+                            <p className={styles.semiboldP}>Latitude</p>
                             <input
                                 type="number"
                                 id="latitude"
@@ -277,11 +280,11 @@ const EditListing = () => {
                                 required
                                 min="-90"
                                 max="90"
-                                className="input"
+                                className={styles.input}
                             />
                         </div>
-                        <div className="">
-                            <p className="semibold-p">Longitude</p>
+                        <div>
+                            <p className={styles.semiboldP}>Longitude</p>
                             <input
                                 type="number"
                                 id="longitude"
@@ -290,13 +293,13 @@ const EditListing = () => {
                                 required
                                 min="-180"
                                 max="180"
-                                className="input"
+                                className={styles.input}
                             />
                         </div>
                     </div>
                 )}
                 <div>
-                    <p className="semibold-p">Beds</p>
+                    <p className={styles.semiboldP}>Beds</p>
                     <input
                         type="number"
                         id="bedrooms"
@@ -305,11 +308,11 @@ const EditListing = () => {
                         min="1"
                         max="50"
                         required
-                        className="input"
+                        className={styles.input}
                     />
                 </div>
                 <div>
-                    <p className="semibold-p">Baths</p>
+                    <p className={styles.semiboldP}>Baths</p>
                     <input
                         type="number"
                         id="bathrooms"
@@ -318,53 +321,61 @@ const EditListing = () => {
                         min="1"
                         max="50"
                         required
-                        className="input"
+                        className={styles.input}
                     />
                 </div>
-                <p className="semibold-p">Parking spot</p>
-                <div className="flex-div">
+                <p className={styles.semiboldP}>Parking spot</p>
+                <div className={styles.flexDiv}>
                     <button
                         type="button"
                         id="parking"
                         value={true}
                         onClick={onChange}
-                        className={`btn-r ${!parking ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            !parking ? styles.black : styles.white
+                        }`}
                     >
-                        Yes
+                        YES
                     </button>
                     <button
                         type="button"
                         id="parking"
                         value={false}
                         onClick={onChange}
-                        className={`btn-l ${parking ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            parking ? styles.black : styles.white
+                        }`}
                     >
-                        no
+                        NO
                     </button>
                 </div>
-                <p className="semibold-p">Furnished</p>
-                <div className="flex-div">
+                <p className={styles.semiboldP}>Furnished</p>
+                <div className={styles.flexDiv}>
                     <button
                         type="button"
                         id="furnished"
                         value={true}
                         onClick={onChange}
-                        className={`btn-r ${!furnished ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            !furnished ? styles.black : styles.white
+                        }`}
                     >
-                        yes
+                        YES
                     </button>
                     <button
                         type="button"
                         id="furnished"
                         value={false}
                         onClick={onChange}
-                        className={`btn-l ${furnished ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            furnished ? styles.black : styles.white
+                        }`}
                     >
                         no
                     </button>
                 </div>
 
-                <p className="semibold-p">Description</p>
+                <p className={styles.semiboldP}>Description</p>
                 <textarea
                     type="text"
                     id="description"
@@ -372,16 +383,18 @@ const EditListing = () => {
                     onChange={onChange}
                     placeholder="Description"
                     required
-                    className="text-inputs"
+                    className={styles.textInputs}
                 />
-                <p className="semibold-p">Offer</p>
-                <div className="offer-div">
+                <p className={styles.semiboldP}>Offer</p>
+                <div className={styles.offerDiv}>
                     <button
                         type="button"
                         id="offer"
                         value={true}
                         onClick={onChange}
-                        className={`btn-r ${!offer ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            !offer ? styles.black : styles.white
+                        }`}
                     >
                         yes
                     </button>
@@ -390,15 +403,17 @@ const EditListing = () => {
                         id="offer"
                         value={false}
                         onClick={onChange}
-                        className={`btn-l ${offer ? "black" : "white"}`}
+                        className={`${styles.btnR} ${
+                            offer ? styles.black : styles.white
+                        }`}
                     >
                         no
                     </button>
                 </div>
-                <div className="center-div">
-                    <div className="">
-                        <p className="semibold-p">Regular price</p>
-                        <div className="input-div">
+                <div className={styles.centerDiv}>
+                    <div>
+                        <p className={styles.semiboldP}>Regular price</p>
+                        <div className={styles.inputDiv}>
                             <input
                                 type="number"
                                 id="regularPrice"
@@ -407,21 +422,21 @@ const EditListing = () => {
                                 min="50"
                                 max="400000000"
                                 required
-                                className="input"
+                                className={styles.input}
                             />
                             {type === "rent" && (
                                 <div className="">
-                                    <p className="nowrap">$ / Month</p>
+                                    <p className={styles.nowrap}>$ / Month</p>
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
                 {offer && (
-                    <div className="center-div">
-                        <div className="">
-                            <p className="semibold-p">Discounted price</p>
-                            <div className="input-div">
+                    <div className={styles.centerDiv}>
+                        <div>
+                            <p className={styles.semiboldP}>Discounted price</p>
+                            <div className={styles.inputDiv}>
                                 <input
                                     type="number"
                                     id="discountedPrice"
@@ -430,20 +445,22 @@ const EditListing = () => {
                                     min="50"
                                     max="400000000"
                                     required={offer}
-                                    className="input"
+                                    className={styles.input}
                                 />
                                 {type === "rent" && (
                                     <div className="">
-                                        <p className="nowrap">$ / Month</p>
+                                        <p className={styles.nowrap}>
+                                            $ / Month
+                                        </p>
                                     </div>
                                 )}
                             </div>
                         </div>
                     </div>
                 )}
-                <div className="img-add">
-                    <p className="semibold-p">Images</p>
-                    <p className="gray">
+                <div className={styles.imgAdd}>
+                    <p className={styles.semiboldP}>Images</p>
+                    <p className={styles.gray}>
                         The first image will be the cover (max 6)
                     </p>
                     <input
@@ -453,10 +470,10 @@ const EditListing = () => {
                         accept=".jpg,.png,.jpeg"
                         multiple
                         required
-                        className="img-input"
+                        className={styles.imgInput}
                     />
                 </div>
-                <button type="submit" className="submit">
+                <button type="submit" className={styles.submit}>
                     Edit Listing
                 </button>
             </form>

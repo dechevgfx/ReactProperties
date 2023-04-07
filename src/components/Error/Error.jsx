@@ -1,19 +1,19 @@
 import { FaExclamationCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Error.css";
+import styles from "./Error.module.css";
 
 const Error = () => {
     return (
         <>
-            <div className="error-message">
+            <div className={styles.errorMessage}>
                 <FaExclamationCircle />
             </div>
-            <div className="error-message">
+            <div className={styles.errorMessage}>
                 <p>Sorry, page not found.</p>
             </div>
-            <div className="button-error">
+            <div className={styles.buttonError}>
                 <Link to="/offers">
-                    <button className="err-btn">CHECK OUR OFFERS</button>
+                    <button className={styles.errBtn}>CHECK OUR OFFERS</button>
                 </Link>
             </div>
         </>

@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useParams } from "react-router-dom";
-import "./Category.css";
+import styles from "./Category.module.css";
 import Spinner from "../../components/Spinner/Spinner";
 import Offer from "../../components/Offer/Offer";
 
@@ -78,18 +78,19 @@ const Category = () => {
     };
 
     return (
-        <div className="container">
-            <h1 className="heading">
+        <div className={styles.container}>
+            <h1 className={styles.heading}>
                 {params.categoryName === "rent"
                     ? "Places for rent"
                     : "Places for sale"}
             </h1>
+            <hr />
             {loading ? (
                 <Spinner />
             ) : listings && listings.length > 0 ? (
                 <>
                     <main>
-                        <ul className="list">
+                        <ul className={styles.list}>
                             {listings.map((listing) => (
                                 <Offer
                                     key={listing.id}
@@ -100,13 +101,13 @@ const Category = () => {
                         </ul>
                     </main>
                     {lastFetchedListing && (
-                            <button
-                                type="button"
-                                onClick={onFetchMoreListings}
-                                id="btn"
-                            >
-                                Load more
-                            </button>
+                        <button
+                            type="button"
+                            onClick={onFetchMoreListings}
+                            className={styles.showMore}
+                        >
+                            LOAD MORE
+                        </button>
                     )}
                 </>
             ) : (

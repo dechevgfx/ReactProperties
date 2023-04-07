@@ -1,4 +1,4 @@
-.spinner-div {
+.spinnerDiv {
     display: flex;
     position: fixed;
     top: 0;
@@ -11,6 +11,6 @@
     align-items: center;
 }
 
-.img-spin {
+.imgSpin {
     height: 6rem;
 }

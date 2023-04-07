@@ -1,4 +1,4 @@
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import OAuth from "../../components/OAuth/OAuth";
@@ -24,35 +24,44 @@ const ForgotPassword = () => {
     return (
         <>
             <section>
-                <h1 className="heading">Forgot Password</h1>
-                <div className="div-container">
-                    <div className="form-div">
+                <h1 className={styles.heading}>Forgot Password</h1>
+                <hr />
+                <br />
+
+                <div className={styles.divContainer}>
+                    <div className={styles.formDiv}>
                         <form onSubmit={onSubmit}>
-                            <div className="input-group">
+                            <div className={styles.inputGroup}>
                                 <input
                                     type="email"
                                     id="email"
                                     value={email}
                                     onChange={onChange}
                                     placeholder="Email address"
-                                    className="input"
+                                    className={styles.input}
                                 />
                             </div>
 
-                            <div >
-                                <p className="p-link">
+                            <div>
+                                <p className={styles.pLink}>
                                     Don't have a account?
-                                    <Link to="/signup" className="txt-red">
+                                    <Link
+                                        to="/signup"
+                                        className={styles.txtRed}
+                                    >
                                         Register
                                     </Link>
                                 </p>
                                 <p>
-                                    <Link to="/signin" className="txt-blue">
+                                    <Link
+                                        to="/signin"
+                                        className={styles.txtBlue}
+                                    >
                                         Sign in instead
                                     </Link>
                                 </p>
                             </div>
-                            <button className="submit" type="submit">
+                            <button className={styles.submit} type="submit">
                                 Send reset password
                             </button>
                             <OAuth />
