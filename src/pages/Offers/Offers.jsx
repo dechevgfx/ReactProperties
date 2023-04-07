@@ -97,7 +97,7 @@ const Offers = () => {
                             <button
                                 type="button"
                                 onClick={onFetchMoreListings}
-                                id={styles.btn}
+                                className={styles.showMore}
                             >
                                 LOAD MORE
                             </button>
