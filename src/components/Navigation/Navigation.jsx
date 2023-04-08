@@ -1,3 +1,11 @@
+/* This is a React component called `Navigation` that renders a header with a logo and a navigation
+bar. It uses the `useLocation` and `useNavigate` hooks from `react-router-dom` to handle navigation
+between pages. It also uses the `getAuth` and `onAuthStateChanged` functions from `firebase/auth` to
+check if a user is authenticated and display the appropriate navigation links. The `useState` and
+`useEffect` hooks from `react` are used to manage the state of the component. The `pathMatch`
+function is used to determine if the current route matches a given path and apply a CSS class to the
+corresponding navigation link. The CSS styles for the component are imported from a separate CSS
+module file. */
 import styles from "./Navigation.module.css";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";

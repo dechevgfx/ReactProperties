@@ -1,3 +1,7 @@
+/* This React component implements a like button functionality for a listing. It imports
+necessary functions and modules from Firebase and React, including `doc`, `getDoc`, `updateDoc`,
+`deleteDoc` from `firebase/firestore`, `useState`, `useEffect`, and `useParams` from `react`, `db`
+from `../../firebase`, `AiOutlineLike` from `react-icons/ai`, and `getAuth` from `firebase/auth`. */
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -14,6 +18,8 @@ const LikeButton = () => {
     const [likes, setLikes] = useState(0);
     const [liked, setLiked] = useState(false);
 
+    /* `useEffect` is used to fetch the listing data from Firebase and update the state
+    variables `listingRef`, `likes`, and `liked` accordingly. */
     useEffect(() => {
         const fetchListing = async () => {
             const docRef = doc(db, "listings", params.listingId);
@@ -31,6 +37,10 @@ const LikeButton = () => {
         fetchListing();
     }, [params.listingId, auth.currentUser]);
 
+    /**
+     * This function handles the like functionality for a listing, updating the likes count and
+     * adding/removing the user's like from the database.
+     */
     const handleLike = async () => {
         if (auth.currentUser && !liked) {
             const userId = auth.currentUser.uid;

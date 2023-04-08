@@ -1,3 +1,6 @@
+/* This is a `Slider` component that imports various modules and components such as
+`Swiper` and `Spinner`. It also imports styles from a CSS module called `Slider.module.css`. */
+
 import styles from "./Slider.module.css";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { useState, useEffect } from "react";

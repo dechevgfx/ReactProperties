@@ -1,3 +1,5 @@
+/* This React component fetches and displays a list of listings based on
+the category name passed in as a URL parameter. */
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {
@@ -20,6 +22,11 @@ const Category = () => {
     const [loading, setLoading] = useState(true);
     const [lastFetchedListing, setLastFetchListing] = useState(null);
     const params = useParams();
+    /* `useEffect` is fetching a list of listings from the Firebase database based on the category name passed
+in as a URL parameter. The `useEffect` hook is called when the component mounts and whenever the
+`params.categoryName` value changes. It sets the state variables `listings`, `loading`, and
+`lastFetchedListing` based on the results of the database query. If there is an error, it displays a
+toast message. */
     useEffect(() => {
         const fetchListings = async () => {
             try {
@@ -50,6 +57,10 @@ const Category = () => {
         fetchListings();
     }, [params.categoryName]);
 
+    /**
+     * This function fetches more listings from a Firestore database based on certain criteria and adds
+     * them to the existing listings array.
+     */
     const onFetchMoreListings = async () => {
         try {
             const listingRef = collection(db, "listings");

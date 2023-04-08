@@ -1,3 +1,10 @@
+/* This React component called `Offer` displays information about a listing. It imports
+various modules and components such as `react-moment`, `react-router-dom`, and icons from
+`react-icons`. The component takes in props such as `listing`, `id`, `onEdit`, and `onDelete` and
+returns a JSX element that displays the information about the listing. The CSS styles for the
+component are imported from a separate CSS module file. The component also includes conditional
+rendering of the delete and edit icons based on whether the `onDelete` and `onEdit` props are passed
+in. */
 import styles from "./Offer.module.css";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";

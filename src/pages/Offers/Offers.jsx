@@ -1,3 +1,9 @@
+/* `Offers` component fetches and displays a list of offers from a Firebase
+Firestore database. It uses the `useEffect` hook to fetch the initial set of offers when the
+component mounts, and the `useState` hook to manage the state of the listings, loading status, and
+the last fetched listing. It also uses the `react-toastify` library to display error messages. The
+component renders a list of `Offer` components and a "Load More" button that fetches additional
+offers when clicked. The component also uses CSS modules to style its elements. */
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {

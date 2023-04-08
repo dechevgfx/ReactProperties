@@ -1,3 +1,11 @@
+/* This React component allows a user to edit a listing. It retrieves the listing
+data from Firebase, populates the form with the existing data, and allows the user to make changes
+to the listing information. The user can change the type of listing (rent or sale), name, address,
+number of bedrooms and bathrooms, parking availability, whether the listing is furnished,
+description, and offer details (regular price and discounted price). The user can also upload up to
+6 images for the listing. Once the user submits the form, the updated listing data is saved to
+Firebase.*/
+
 import { useState } from "react";
 import { toast } from "react-toastify";
 import {
@@ -80,8 +88,10 @@ const EditListing = () => {
         fetchListing();
     }, [navigate, params.listingId]);
 
-    const btnClass = type === "rent" ? styles.black : styles.white;
-
+    /**
+     * The function updates form data based on the type of input received from the user, including handling
+     * boolean values and file uploads.
+     */
     const onChange = (e) => {
         let boolean = null;
         if (e.target.value === "true") {
@@ -105,6 +115,13 @@ const EditListing = () => {
             }));
         }
     };
+    /**
+     * This function handles the submission of a form for editing a listing, including validation,
+     * geolocation, image storage, and updating the database.
+     * @returns It is not clear what is being returned as there are multiple return statements in the code
+     * and it depends on the conditions being met. Some of the possible return values are: undefined, toast
+     * error message, and navigate to a different page.
+     */
     const onSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);

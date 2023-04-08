@@ -1,3 +1,10 @@
+/* This React component allows users to create a new offer for a real estate
+listing. It includes a form with various input fields such as type (rent or sale), name, address,
+number of bedrooms and bathrooms, parking availability, furnished status, description, offer
+(whether there is a discount available), regular price, discounted price (if applicable), and
+images. The component uses Firebase for storage and authentication, and also includes geolocation
+functionality to automatically determine the latitude and longitude of the address entered by the
+user. Once the form is submitted, the data is stored in a Firestore database */
 import { useState } from "react";
 import styles from "./CreateOffer.module.css";
 import { toast } from "react-toastify";
@@ -51,6 +58,10 @@ const CreateOffer = () => {
         longitude,
         images,
     } = formData;
+    /**
+     * The function updates form data based on the type of input received from the user, including
+     * handling boolean values and file uploads.
+     */
     const onChange = (e) => {
         let boolean = null;
         if (e.target.value === "true") {
@@ -74,6 +85,13 @@ const CreateOffer = () => {
             }));
         }
     };
+    /**
+     * This function handles the submission of a form for creating a new listing, including validation,
+     * image storage, and database insertion.
+     * @returns The function `onSubmit` does not have a return statement, so it does not explicitly return
+     * anything. However, it may return a promise if the `Promise.all` call inside it resolves
+     * successfully.
+     */
     const onSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -184,7 +202,7 @@ const CreateOffer = () => {
     return (
         <main className={styles.mainOffer}>
             <h1 className={styles.heading}>Create a Offer</h1>
-<hr />
+            <hr />
             <form onSubmit={onSubmit}>
                 <p className={styles.pType}>Sell / Rent</p>
                 <div className={styles.flexDiv}>
@@ -399,47 +417,51 @@ const CreateOffer = () => {
                     </div>
                 </div>
                 {offer && (
-          <div className={styles.centerDiv}>
-            <div>
-              <p className={styles.semiboldP}>Discounted price</p>
-              <div className={styles.inputDiv}>
-                <input
-                  type="number"
-                  id="discountedPrice"
-                  value={discountedPrice}
-                  onChange={onChange}
-                  min="50"
-                  max="400000000"
-                  required={offer}
-                  className={styles.input}
-                />
-                {type === "rent" && (
-                  <div>
-                    <p className={styles.nowrap}>$ / Month</p>
-                  </div>
+                    <div className={styles.centerDiv}>
+                        <div>
+                            <p className={styles.semiboldP}>Discounted price</p>
+                            <div className={styles.inputDiv}>
+                                <input
+                                    type="number"
+                                    id="discountedPrice"
+                                    value={discountedPrice}
+                                    onChange={onChange}
+                                    min="50"
+                                    max="400000000"
+                                    required={offer}
+                                    className={styles.input}
+                                />
+                                {type === "rent" && (
+                                    <div>
+                                        <p className={styles.nowrap}>
+                                            $ / Month
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 )}
-              </div>
-            </div>
-          </div>
-        )}
-        <div className={styles.imgAdd}>
-          <p className={styles.semiboldP}>Images</p>
-          <p className={styles.gray}>The first image will be the cover (max 6)</p>
-          <input
-            type="file"
-            id="images"
-            onChange={onChange}
-            accept=".jpg,.png,.jpeg"
-            multiple
-            required
-            className={styles.imgInput}
-          />
-        </div>
-        <button type="submit" className={styles.submit}>
-          Create Offer
-        </button>
-      </form>
-    </main>
-  );
-}
+                <div className={styles.imgAdd}>
+                    <p className={styles.semiboldP}>Images</p>
+                    <p className={styles.gray}>
+                        The first image will be the cover (max 6)
+                    </p>
+                    <input
+                        type="file"
+                        id="images"
+                        onChange={onChange}
+                        accept=".jpg,.png,.jpeg"
+                        multiple
+                        required
+                        className={styles.imgInput}
+                    />
+                </div>
+                <button type="submit" className={styles.submit}>
+                    Create Offer
+                </button>
+            </form>
+        </main>
+    );
+};
 export default CreateOffer;

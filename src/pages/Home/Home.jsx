@@ -1,3 +1,9 @@
+/* This React component fetches and displays listings from a Firebase Firestore
+database. It fetches recent listings, places for rent, and places for sale separately using
+different queries and displays them in separate sections on the page. It also includes a slider
+component at the top of the page. The component uses the useState and useEffect hooks to manage
+state and fetch data asynchronously. It also uses the Link component from React Router to create
+links to other pages. */
 import {
     collection,
     getDocs,

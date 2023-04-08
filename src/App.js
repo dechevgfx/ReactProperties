@@ -1,3 +1,7 @@
+/**
+ * This is the main App component of a React application that defines the routes and renders different
+ * pages based on the URL path.
+ */
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";

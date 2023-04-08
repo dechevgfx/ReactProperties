@@ -1,3 +1,10 @@
+/* `MyLikes` component displays a list of properties that the user has
+liked. It imports various modules from React, Firebase, and other components. It uses the `useState`
+hook to manage the state of the `listings` and `loading` variables. It also uses the `useEffect`
+hook to fetch the liked listings from Firebase and update the state accordingly. The component
+renders a spinner while the data is being fetched, and then displays the list of liked properties
+using the `Offer` component. If the user has not liked any properties, it displays a message
+indicating that they have 0 liked properties. */
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
@@ -18,6 +25,9 @@ const MyLikes = () => {
             orderBy("timestamp", "desc"),
         );
 
+/* `const likes = onSnapshot()` is setting up a listener for changes to the `likedListingsQuery` query.
+Whenever there is a change in the query results, the callback function is called with a `snapshot`
+object that contains the updated data. */
         const likes = onSnapshot(
             likedListingsQuery,
             (snapshot) => {

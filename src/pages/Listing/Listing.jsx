@@ -1,3 +1,9 @@
+/* This React component displays the details of a single listing. It fetches the
+listing data from Firebase using the listing ID from the URL parameters. It displays the listing
+images using a Swiper component, and displays the listing details such as price, address, bedrooms,
+bathrooms, parking, and furnishing. It also displays a map with a marker at the listing location. If
+the user is logged in, it displays a LikeButton component that allows the user to like the listing.
+If the user is logged in and is not the owner of the listing, it displays a Contact component */
 import styles from "./Listing.module.css";
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";

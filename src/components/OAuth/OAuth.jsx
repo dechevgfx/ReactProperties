@@ -1,3 +1,12 @@
+/**
+ * The above function is a React component that allows users to sign in with their Google account using
+ * Firebase authentication and saves their information to a Firestore database.
+ * @returns This code exports a functional component named `OAuth` that returns a button with the text
+ * "Continue with Google" and a Google icon. When the button is clicked, it triggers the
+ * `onGoogleClick` function which uses Firebase authentication to sign in with Google and checks if the
+ * user exists in the Firestore database. If the user does not exist, it creates a new document with
+ * the user's name,
+ */
 import styles from "./OAuth.module.css";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";

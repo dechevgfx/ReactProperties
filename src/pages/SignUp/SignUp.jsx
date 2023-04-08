@@ -1,3 +1,11 @@
+/* This is a React component for a sign-up form. It imports various modules and components such as CSS
+styles, useState hook, react-icons, react-router-dom, OAuth component, and Firebase authentication
+and database modules. The component defines state variables for form data and password visibility,
+and functions for handling form input changes and form submission. The form includes input fields
+for name, email, and password, and buttons for submitting the form and signing up with OAuth
+providers. Upon successful form submission, the component updates the user's profile and creates a
+new document in the Firebase database for the user. */
+
 import styles from "./SignUp.module.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";

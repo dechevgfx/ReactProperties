@@ -1,3 +1,4 @@
+/* This is a React component for a "Forgot Password" page. */
 import styles from "./ForgotPassword.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,6 +12,10 @@ const ForgotPassword = () => {
     const onChange = (e) => {
         setEmail(e.target.value);
     };
+    /**
+     * This function sends a password reset email using Firebase authentication and displays a success
+     * or error message using toast notifications.
+     */
     const onSubmit = async (e) => {
         e.preventDefault();
         try {

@@ -1,3 +1,4 @@
+/* This is a React component for a sign-in form. */
 import styles from "./SignIn.module.css";
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";

@@ -1,3 +1,10 @@
+/* This React component displays the user's profile information and their listings.
+It allows the user to edit their profile details, add new listings, and delete existing listings.
+The component uses Firebase authentication and Firestore database to fetch and update data. It also
+uses React Router to navigate between different pages. The component renders a form with input
+fields for the user's name and email, and a button to sign out. It also renders a button to add a
+new listing and a list of the user's existing listings. The component uses the Offer component to
+display each listing and provides functionality to delete */
 import styles from "./Profile.module.css";
 import { getAuth, updateProfile } from "firebase/auth";
 import {
@@ -66,6 +73,7 @@ const Profile = () => {
             toast.success("Successfully deleted the listing");
         }
     };
+
     const onEdit = (listingID) => {
         navigate(`/edit/${listingID}`);
     };
@@ -96,7 +104,7 @@ const Profile = () => {
         <>
             <section className={styles.containerProfileEdit}>
                 <h1 className={styles.heading}>MY PROFILE</h1>
-<hr />
+                <hr />
                 <div className={styles.divForm}>
                     <form>
                         <div className={styles.inputGroup}>
