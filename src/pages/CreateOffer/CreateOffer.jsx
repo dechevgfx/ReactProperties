@@ -105,6 +105,12 @@ const CreateOffer = () => {
             toast.error("maximum 6 images are allowed");
             return;
         }
+
+        /* The below code is checking if geolocation is enabled. If it
+        is enabled, it fetches the latitude and longitude of a given address using the Google Maps
+        API and stores it in the `geolocation` object. If the address is not found, it sets the
+        `location` variable to undefined and displays an error message using the `toast` function.
+        If geolocation is not enabled, it uses the provided `latitude` and `longitude` values. */
         let geolocation = {};
         let location;
         if (geolocationEnabled) {
@@ -127,6 +133,11 @@ const CreateOffer = () => {
             geolocation.lng = longitude;
         }
 
+        /**
+         * This function stores an image in Firebase storage and returns its download URL.
+         * @returns The `storeImage` function is returning a Promise that resolves with the download
+         * URL of the uploaded image.
+         */
         const storeImage = async (image) => {
             return new Promise((resolve, reject) => {
                 const storage = getStorage();
@@ -186,6 +197,9 @@ const CreateOffer = () => {
             timestamp: serverTimestamp(),
             userRef: auth.currentUser.uid,
         };
+        /* The images, discountedPrice, latitude, and longitude properties are removed from formDataCopy
+         using the delete operator. This is likely to clean up the
+         object and remove any unnecessary properties. */
         delete formDataCopy.images;
         !formDataCopy.offer && delete formDataCopy.discountedPrice;
         delete formDataCopy.latitude;
