@@ -1,6 +1,6 @@
 # Project Overview
 
-> React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
+React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
 
 # Installation
 
