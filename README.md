@@ -1,22 +1,63 @@
 # Project Overview
 
-React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
+> React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
+
+# Installation
+
+### To install React-Properties, follow these steps:
+
+-   Clone the GitHub repository or download the source code.
+-   Navigate to the root directory of the application in your terminal.
+-   Run "npm install" to install the dependencies.
+-   Run "npm start" to start the development server.
 
 # Project Architecture
 
-The architecture of the project follows a standard approach commonly used in React-based web applications. The project's root directory is the "src" directory, which contains several sub-directories, including:
+> The architecture of the project follows a standard approach commonly used in React-based web applications. The project's root directory is the "src" directory, which contains several sub-directories, including:
 
 ## Components:
 
-This directory contains reusable UI components that can be used across different pages of the application. Each component is located in its own sub-folder, and has its own .module.css file that contains the component's styles.
+> This directory contains reusable UI components that can be used across different pages of the application. Each component is located in its own sub-folder, and has its own .module.css file that contains the component's styles.
 
 ## Pages:
 
-This directory contains the different pages of the application, each located in its own sub-folder. Each page component uses the reusable UI components from the "Components" folder and has its own .module.css file that contains the page's styles.
+> This directory contains the different pages of the application, each located in its own sub-folder. Each page component uses the reusable UI components from the "Components" folder and has its own .module.css file that contains the page's styles.
 
 ## Hooks:
 
-This directory contains custom hooks that can be used across different components of the application.
+> This directory contains custom hooks that can be used across different components of the application.
+
+-   ### AuthStatus custom hook
+
+    The AuthStatus custom hook is a React hook that checks the
+    authentication status of a user and returns whether they are logged
+    in or not, along with a checking status. This hook is designed to be
+    used with Firebase's authentication service, using the getAuth and
+    onAuthStateChanged methods.
+
+```
+import React from "react";
+import { AuthStatus } from "./AuthStatus";
+
+const MyComponent = () => {
+    const { loggedIn, checkingStatus } = AuthStatus();
+
+    if (checkingStatus) {
+        return <div>Checking authentication status...</div>;
+    }
+
+    if (loggedIn) {
+        return <div>User is logged in.</div>;
+    } else {
+        return <div>User is not logged in.</div>;
+    }
+};
+
+export default MyComponent;
+
+```
+
+> In this example, the AuthStatus hook is imported and called within the MyComponent component. The loggedIn and checkingStatus properties of the returned object are then used to display a message indicating the user's authentication status. If the checkingStatus property is true, a message is displayed indicating that the authentication status is being checked. If the loggedIn property is true, a message is displayed indicating that the user is logged in. Otherwise, a message is displayed indicating that the user is not logged in.
 
 ## Assets:
 
@@ -58,6 +99,21 @@ This directory contains the static assets such as images, fonts, and other resou
 
 -   Offers component fetches a list of offers from a Firebase Firestore database, and displays them using the Offer component. It also uses react-toastify to display error messages.
 -   The component uses the useEffect hook to fetch the initial set of offers when it mounts, and the useState hook to manage the state of the listings, loading status, and the last fetched listing. It renders a list of Offer components and a "Load More" button that fetches additional offers when clicked.
+
+## Log In (public)
+
+![Sign In](./ImagesDocumentation/SignIn.png)
+
+-   This is a React component for a sign-in form that authenticates users using Firebase's Authentication API.
+-   The component has two states: showPassword (a boolean used to show/hide the password field) and formData (an object used to store the user's email and password entered in the form).
+-   The component includes two links. The first link, labeled "Register," redirects the user to the registration page when clicked. This is accomplished using the react-router-dom package's Link component, which creates a hyperlink to a specified path in the application.
+    ![Sign Up](./ImagesDocumentation/SignUp.png)
+
+-   The second link, labeled "Forgot password?," redirects the user to the password reset page when clicked. This is also implemented using the Link component.
+    ![Forgot Password](./ImagesDocumentation/Forgot.png)
+
+-   The page also includes a "Continue with Google" button implemented using the OAuth component, which allows users to sign in with their Google account.
+    ![Google Login](./ImagesDocumentation/google.png)
 
 ## Navigation (public)
 
@@ -153,3 +209,18 @@ The private part of the listing is the LikeButton and Contact components, which 
 -   Delete Button: This button appears next to each listing and allows the user to delete the listing. Clicking on this button prompts the user with a confirmation message, and if the user confirms, the listing is deleted from Firestore.
 
     ![Delete confirm](./ImagesDocumentation/private%20delete.png)
+
+# Deployment
+
+### The React-Properties app has been deployed on Vercel. To access the deployed version, follow the steps below:
+
+-   Open a web browser and navigate to https://react-properties.vercel.app/.
+-   The React-Properties app should load in your browser. You can now interact with the app as you would with the local version.
+
+> Note that the deployed version of the app may have different features or behavior compared to the local version, depending on the deployment settings and environment. If you encounter any issues or errors with the deployed version, please contact georgiddechev@gmail.com for assistance.
+
+# Conclusion
+
+In this documentation, you can find a detailed overview of the React-Properties app, including its features, dependencies, deployment process and installation. I hope that this documentation has been helpful in understanding the app and how it can be used.
+
+> If you have any questions or feedback about the app or this documentation, please feel free to contact me at georgiddechev@gmail.com. Any suggestions or ideas for improving the app or the documentation are welcome.

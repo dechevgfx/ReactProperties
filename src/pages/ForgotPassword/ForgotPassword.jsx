@@ -1,13 +1,14 @@
 /* This is a React component for a "Forgot Password" page. */
 import styles from "./ForgotPassword.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import OAuth from "../../components/OAuth/OAuth";
 import { toast } from "react-toastify";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
+    const navigate = useNavigate();
 
     const onChange = (e) => {
         setEmail(e.target.value);
@@ -21,6 +22,7 @@ const ForgotPassword = () => {
         try {
             const auth = getAuth();
             await sendPasswordResetEmail(auth, email);
+            navigate("/signin");
             toast.success("Email with instructions was sent");
         } catch (error) {
             toast.error("Could not reset password");
