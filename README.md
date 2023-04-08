@@ -61,7 +61,7 @@ export default MyComponent;
 
 ## Assets:
 
-This directory contains the static assets such as images, fonts, and other resources used in the application.
+> This directory contains the static assets such as images, fonts, and other resources used in the application.
 
 # Dependencies:
 
