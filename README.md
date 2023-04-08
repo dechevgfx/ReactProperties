@@ -27,9 +27,9 @@
 
 > This directory contains custom hooks that can be used across different components of the application.
 
--   ### AuthStatus custom hook
+-   ### useAuthStatus custom hook
 
-    The AuthStatus custom hook is a React hook that checks the
+    The useAuthStatus custom hook is a React hook that checks the
     authentication status of a user and returns whether they are logged
     in or not, along with a checking status. This hook is designed to be
     used with Firebase's authentication service, using the getAuth and
@@ -37,10 +37,10 @@
 
 ```
 import React from "react";
-import { AuthStatus } from "./AuthStatus";
+import { useAuthStatus } from "./useAuthStatus";
 
 const MyComponent = () => {
-    const { loggedIn, checkingStatus } = AuthStatus();
+    const { loggedIn, checkingStatus } = useAuthStatus();
 
     if (checkingStatus) {
         return <div>Checking authentication status...</div>;
@@ -57,7 +57,7 @@ export default MyComponent;
 
 ```
 
-> In this example, the AuthStatus hook is imported and called within the MyComponent component. The loggedIn and checkingStatus properties of the returned object are then used to display a message indicating the user's authentication status. If the checkingStatus property is true, a message is displayed indicating that the authentication status is being checked. If the loggedIn property is true, a message is displayed indicating that the user is logged in. Otherwise, a message is displayed indicating that the user is not logged in.
+> In this example, the useAuthStatus hook is imported and called within the MyComponent component. The loggedIn and checkingStatus properties of the returned object are then used to display a message indicating the user's authentication status. If the checkingStatus property is true, a message is displayed indicating that the authentication status is being checked. If the loggedIn property is true, a message is displayed indicating that the user is logged in. Otherwise, a message is displayed indicating that the user is not logged in.
 
 ## Assets:
 
