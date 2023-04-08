@@ -16,6 +16,10 @@ const PrivateRoute = () => {
   if (checkingStatus) {
     return <Spinner />;
   }
+  /* If `loggedIn` is true, it returns the
+  child routes using the `Outlet` component, which renders the child routes of the current route. If
+  `loggedIn` is false, it navigates to the `/signin` route using the `Navigate` component, which
+  redirects the user to the specified route. */
   return loggedIn ? <Outlet /> : <Navigate to="/signin" />;
 };
 export default PrivateRoute;
