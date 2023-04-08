@@ -42,9 +42,9 @@ const Contact = ({ userRef, listing }) => {
         <>
             {landlord !== null && (
                 <div className={styles.container}>
-                    <p>
+                    <h5>
                         Contact {landlord.name} for the {listing.name}
-                    </p>
+                    </h5>
                     <div className={styles.contactDiv}>
                         <textarea
                             name="message"
