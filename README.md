@@ -1,6 +1,6 @@
 # Project Overview
 
-> React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
+React Properties is a small-sized web application that enables users to view and contact owners for properties available for rent or sale. The application is built using the React JavaScript library for the frontend, and Firebase for data storage and management.
 
 # Installation
 
@@ -61,7 +61,7 @@ export default MyComponent;
 
 ## Assets:
 
-This directory contains the static assets such as images, fonts, and other resources used in the application.
+> This directory contains the static assets such as images, fonts, and other resources used in the application.
 
 # Dependencies:
 
@@ -217,7 +217,7 @@ The private part of the listing is the LikeButton and Contact components, which 
 -   Open a web browser and navigate to https://react-properties.vercel.app/.
 -   The React-Properties app should load in your browser. You can now interact with the app as you would with the local version.
 
-> Note that the deployed version of the app may have different features or behavior compared to the local version, depending on the deployment settings and environment. If you encounter any issues or errors with the deployed version, please contact georgiddechev@gmail.com for assistance.
+> If you encounter any issues or errors with the deployed version, please contact georgiddechev@gmail.com for assistance.
 
 # Conclusion
 
