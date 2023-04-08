@@ -6,14 +6,14 @@
 
 ### To install React-Properties, follow these steps:
 
--   Clone the GitHub repository or download the source code.
--   Navigate to the root directory of the application in your terminal.
--   Run "npm install" to install the dependencies.
--   Run "npm start" to start the development server.
+-   Clone the GitHub repository `git clone https://github.com/dechevgfx/ReactProperties.git` or download the source code.
+-   Navigate to the root directory `cd project-name` of the application in your terminal.
+-   Run `npm install` to install the dependencies.
+-   Run `npm start` to start the development server.
 
 # Project Architecture
 
-> The architecture of the project follows a standard approach commonly used in React-based web applications. The project's root directory is the "src" directory, which contains several sub-directories, including:
+The architecture of the project follows a standard approach commonly used in React-based web applications. The project's root directory is the "src" directory, which contains several sub-directories, **including:**
 
 ## Components:
 
@@ -198,7 +198,7 @@ The private part of the listing is the LikeButton and Contact components, which 
 
     ![SignOut button](./ImagesDocumentation/signut.png)
 
-### Edit and Delete
+### Edit and Delete Listing
 
 ![Edit and delete buttons](./ImagesDocumentation/edit%20delete.png)
 
