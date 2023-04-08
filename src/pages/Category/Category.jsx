@@ -92,8 +92,8 @@ toast message. */
         <div className={styles.container}>
             <h1 className={styles.heading}>
                 {params.categoryName === "rent"
-                    ? "Places for rent"
-                    : "Places for sale"}
+                    ? "PROPERTIES FOR RENT"
+                    : "PROPERTIES FOR SALE"}
             </h1>
             <hr />
             {loading ? (
@@ -125,8 +125,8 @@ toast message. */
                 <p>
                     There are no current{" "}
                     {params.categoryName === "rent"
-                        ? "places for rent"
-                        : "places for sale"}
+                        ? "PROPERTIES FOR RENT"
+                        : "PROPERTIES FOR SALE"}
                 </p>
             )}
         </div>

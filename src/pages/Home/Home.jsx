@@ -131,9 +131,7 @@ const Home = () => {
                                 ))}
                             </ul>
                             <Link to="/offers">
-                                <p className={styles.showMore}>
-                                    Show all listings
-                                </p>
+                                <p className={styles.showMore}>SHOW ALL</p>
                             </Link>
                         </div>
                     ) : (
@@ -149,12 +147,12 @@ const Home = () => {
                             </div>
                             <Link to="/profile">
                                 <p className={styles.showMore}>
-                                BEGIN LISTING YOUR PROPERTIES
+                                    BEGIN LISTING YOUR PROPERTIES
                                 </p>
                             </Link>
                         </>
                     )}
-
+                    <br />
                     {rentListings && rentListings.length > 0 && (
                         <div className={styles.listings}>
                             <h1 className={styles.heading}>FOR RENT</h1>
@@ -170,12 +168,11 @@ const Home = () => {
                                 ))}
                             </ul>
                             <Link to="/category/rent">
-                                <p className={styles.showMore}>
-                                    Show more places for rent
-                                </p>
+                                <p className={styles.showMore}>SHOW ALL</p>
                             </Link>
                         </div>
                     )}
+                    <br />
                     {saleListings && saleListings.length > 0 && (
                         <div className={styles.listings}>
                             <h1 className={styles.heading}>FOR SALE</h1>
@@ -191,12 +188,11 @@ const Home = () => {
                                 ))}
                             </ul>
                             <Link to="/category/sale">
-                                <p className={styles.showMore}>
-                                    Show more places for sale
-                                </p>
+                                <p className={styles.showMore}>SHOW ALL</p>
                             </Link>
                         </div>
                     )}
+                    <br />
                 </div>
             </div>
         </>
