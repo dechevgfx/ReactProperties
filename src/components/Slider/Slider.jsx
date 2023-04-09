@@ -31,6 +31,8 @@ const Slider = () => {
                 orderBy("timestamp", "desc"),
                 limit(5),
             );
+            /* This code is querying the Firestore database for the latest 5 listings and then creating
+            an array of objects called `listings` that contains the `id` and `data` of each listing. */
             const querySnap = await getDocs(q);
             let listings = [];
             querySnap.forEach((doc) => {

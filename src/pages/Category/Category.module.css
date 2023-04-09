@@ -1,7 +1,3 @@
-.container {
-    max-width: 82rem;
-}
-
 .heading {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -30,6 +26,7 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    margin-bottom: 40px;
 }
 .showMore:hover {
     opacity: 1;

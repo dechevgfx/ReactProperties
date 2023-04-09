@@ -8,7 +8,6 @@
     padding-right: 0.75rem;
     margin-left: auto;
     margin-right: auto;
-    max-width: 82rem;
 }
 .heading {
     margin-top: 1.5rem;
@@ -33,6 +32,7 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    margin-bottom: 40px;
 }
 .showMore:hover {
     opacity: 1;
